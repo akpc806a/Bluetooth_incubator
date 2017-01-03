@@ -1,0 +1,698 @@
+object TabbedForm: TTabbedForm
+  Left = 0
+  Top = 0
+  Caption = 'TabbedForm'
+  ClientHeight = 567
+  ClientWidth = 384
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop, iPhone, iPad]
+  OnCreate = FormCreate
+  OnClose = FormClose
+  OnShow = FormShow
+  DesignerMasterStyle = 3
+  object TabControl: TTabControl
+    Align = Client
+    FullSize = True
+    Size.Width = 384.000000000000000000
+    Size.Height = 567.000000000000000000
+    Size.PlatformDefault = False
+    TabHeight = 49.000000000000000000
+    TabIndex = 5
+    TabOrder = 0
+    TabPosition = PlatformDefault
+    OnChange = TabControlChange
+    Sizes = (
+      384s
+      518s
+      384s
+      518s
+      384s
+      518s
+      384s
+      518s
+      384s
+      518s
+      384s
+      518s
+      384s
+      518s)
+    object TabItem_Connect: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 54.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'tabitemtoprated'
+      TabOrder = 0
+      Text = 'Connect'
+      ExplicitSize.cx = 64.000000000000000000
+      ExplicitSize.cy = 49.000000000000000000
+      object ComboBoxPaired: TComboBox
+        Position.X = 12.000000000000000000
+        Position.Y = 37.000000000000000000
+        Size.Width = 293.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 4
+        OnChange = ComboBoxPairedChange
+      end
+    end
+    object TabItem_Data: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 54.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'tabitemcontacts'
+      TabOrder = 0
+      Text = 'Live data'
+      ExplicitSize.cx = 64.000000000000000000
+      ExplicitSize.cy = 49.000000000000000000
+      object Edt_TempC: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        TabOrder = 0
+        Position.X = 32.000000000000000000
+        Position.Y = 40.000000000000000000
+        Size.Width = 100.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object Edt_Hum: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        TabOrder = 1
+        Position.X = 32.000000000000000000
+        Position.Y = 96.000000000000000000
+        Size.Width = 100.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object Edt_Timer: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        TabOrder = 2
+        Position.X = 32.000000000000000000
+        Position.Y = 152.000000000000000000
+        Size.Width = 100.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object Label_Temp: TLabel
+        Position.X = 208.000000000000000000
+        Position.Y = 48.000000000000000000
+        Size.Width = 129.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Label_Temp'
+      end
+      object Label_Hum: TLabel
+        Position.X = 208.000000000000000000
+        Position.Y = 104.000000000000000000
+        Size.Width = 129.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Label_Temp'
+      end
+      object Label_Timer: TLabel
+        Position.X = 208.000000000000000000
+        Position.Y = 160.000000000000000000
+        Size.Width = 129.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Label_Temp'
+      end
+      object Label1: TLabel
+        Position.X = 144.000000000000000000
+        Position.Y = 48.000000000000000000
+        Size.Width = 41.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'oC'
+      end
+      object Label2: TLabel
+        Position.X = 144.000000000000000000
+        Position.Y = 104.000000000000000000
+        Size.Width = 41.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        Text = '%'
+      end
+    end
+    object TabItem_Output: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 54.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'tabitemrecent'
+      TabOrder = 0
+      Text = 'Output'
+      OnClick = TabItem_OutputClick
+      ExplicitSize.cx = 64.000000000000000000
+      ExplicitSize.cy = 49.000000000000000000
+      object Label3: TLabel
+        Position.X = 24.000000000000000000
+        Position.Y = 24.000000000000000000
+        Size.Width = 97.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Output 1'
+      end
+      object Label4: TLabel
+        Position.X = 24.000000000000000000
+        Position.Y = 72.000000000000000000
+        Size.Width = 97.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Output 2'
+      end
+      object Label5: TLabel
+        Position.X = 24.000000000000000000
+        Position.Y = 120.000000000000000000
+        Size.Width = 97.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Output 3'
+      end
+      object ComboBox_Output1: TComboBox
+        Items.Strings = (
+          'Temperature'
+          'Humidity'
+          'Timer')
+        Position.X = 144.000000000000000000
+        Position.Y = 16.000000000000000000
+        Size.Width = 121.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 15
+        OnChange = ComboBox_Output1Change
+      end
+      object ComboBox_Output2: TComboBox
+        Items.Strings = (
+          'Temperature'
+          'Humidity'
+          'Timer')
+        Position.X = 144.000000000000000000
+        Position.Y = 64.000000000000000000
+        Size.Width = 121.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 14
+        OnChange = ComboBox_Output2Change
+      end
+      object ComboBox_Output3: TComboBox
+        Items.Strings = (
+          'Temperature'
+          'Humidity'
+          'Timer')
+        Position.X = 144.000000000000000000
+        Position.Y = 112.000000000000000000
+        Size.Width = 121.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 13
+        OnChange = ComboBox_Output3Change
+      end
+      object ChBx_ManualCtrlEn: TCheckBox
+        Position.X = 16.000000000000000000
+        Position.Y = 184.000000000000000000
+        Size.Width = 193.000000000000000000
+        Size.Height = 19.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        Text = 'Manual Control Enable'
+        OnChange = ChBx_ManualCtrlEnChange
+      end
+      object TrackBar_HeaterPower: TTrackBar
+        CanParentFocus = True
+        Orientation = Horizontal
+        Position.X = 88.000000000000000000
+        Position.Y = 216.000000000000000000
+        Size.Width = 209.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 10
+        OnChange = TrackBar_HeaterPowerChange
+      end
+      object Label6: TLabel
+        Position.X = 16.000000000000000000
+        Position.Y = 216.000000000000000000
+        Size.Width = 65.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Heater'
+      end
+      object ChBx_HumidityOn: TCheckBox
+        Position.X = 40.000000000000000000
+        Position.Y = 272.000000000000000000
+        Size.Width = 185.000000000000000000
+        Size.Height = 19.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        Text = 'Humidity Output On'
+        OnChange = ChBx_HumidityOnChange
+      end
+      object ChBx_TimerOn: TCheckBox
+        Position.X = 40.000000000000000000
+        Position.Y = 312.000000000000000000
+        Size.Width = 185.000000000000000000
+        Size.Height = 19.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 3
+        Text = 'Timer Output On'
+        OnChange = ChBx_TimerOnChange
+      end
+    end
+    object TabItem_TempCtrl: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 54.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'tabitemmostrecent'
+      TabOrder = 0
+      Text = 'Temper.'
+      OnClick = TabItem_TempCtrlClick
+      ExplicitSize.cx = 64.000000000000000000
+      ExplicitSize.cy = 49.000000000000000000
+      object Label7: TLabel
+        Position.X = 8.000000000000000000
+        Position.Y = 8.000000000000000000
+        Size.Width = 137.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Setpoint ref (oC)'
+      end
+      object Edt_TempCtrlSetpoint: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        TabOrder = 4
+        Position.X = 152.000000000000000000
+        Position.Y = 8.000000000000000000
+        Size.Width = 100.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        OnChange = Edt_TempCtrlSetpointChange
+      end
+      object Label8: TLabel
+        Position.X = 8.000000000000000000
+        Position.Y = 48.000000000000000000
+        Size.Width = 129.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Type'
+      end
+      object ComboBox_TempCtrlType: TComboBox
+        Position.X = 152.000000000000000000
+        Position.Y = 47.000000000000000000
+        TabOrder = 19
+        OnChange = ComboBox_TempCtrlTypeChange
+        object ListBoxItem1: TListBoxItem
+          TabOrder = 0
+          Text = 'On-Off'
+        end
+        object ListBoxItem2: TListBoxItem
+          TabOrder = 1
+          Text = 'PI'
+        end
+        object ListBoxItem3: TListBoxItem
+          TabOrder = 2
+          Text = 'Hybrid'
+        end
+      end
+      object Edt_TempCtrlInterval: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        TabOrder = 3
+        Position.X = 152.000000000000000000
+        Position.Y = 88.000000000000000000
+        Size.Width = 100.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        OnChange = Edt_TempCtrlIntervalChange
+      end
+      object Label9: TLabel
+        Position.X = 8.000000000000000000
+        Position.Y = 88.000000000000000000
+        Size.Width = 137.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Ctrl. period (sec)'
+      end
+      object Label10: TLabel
+        Position.X = 8.000000000000000000
+        Position.Y = 152.000000000000000000
+        Size.Width = 185.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'On-Off Hysteresis (oC)'
+      end
+      object Edt_TempOnOff_Hysteresis: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        TabOrder = 0
+        Position.X = 200.000000000000000000
+        Position.Y = 144.000000000000000000
+        Size.Width = 100.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        OnChange = Edt_TempOnOff_HysteresisChange
+      end
+      object Label11: TLabel
+        Position.X = 8.000000000000000000
+        Position.Y = 208.000000000000000000
+        Size.Width = 129.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Kp coefficient'
+      end
+      object Edt_Kp: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        TabOrder = 2
+        Position.X = 144.000000000000000000
+        Position.Y = 200.000000000000000000
+        Size.Width = 100.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        OnChange = Edt_KpChange
+      end
+      object Edt_Ki: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        TabOrder = 1
+        Position.X = 144.000000000000000000
+        Position.Y = 240.000000000000000000
+        Size.Width = 100.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        OnChange = Edt_KiChange
+      end
+      object Label12: TLabel
+        Position.X = 8.000000000000000000
+        Position.Y = 248.000000000000000000
+        Size.Width = 129.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Ki coefficient'
+      end
+    end
+    object TabItem_HumCtrl: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 54.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'Humid.'
+      OnClick = TabItem_HumCtrlClick
+      ExplicitSize.cx = 64.000000000000000000
+      ExplicitSize.cy = 49.000000000000000000
+      object Label13: TLabel
+        Position.X = 16.000000000000000000
+        Position.Y = 24.000000000000000000
+        Size.Width = 137.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Upper value (%)'
+      end
+      object Edt_Hum_UpperValue: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        TabOrder = 1
+        Position.X = 160.000000000000000000
+        Position.Y = 16.000000000000000000
+        Size.Width = 100.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        OnChange = Edt_Hum_UpperValueChange
+      end
+      object Edt_Hum_LowerValue: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        TabOrder = 0
+        Position.X = 160.000000000000000000
+        Position.Y = 56.000000000000000000
+        Size.Width = 100.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        OnChange = Edt_Hum_LowerValueChange
+      end
+      object Label14: TLabel
+        Position.X = 16.000000000000000000
+        Position.Y = 64.000000000000000000
+        Size.Width = 137.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Lower value (%)'
+      end
+      object Edt_Hum_Period: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        TabOrder = 3
+        Position.X = 160.000000000000000000
+        Position.Y = 96.000000000000000000
+        Size.Width = 100.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        OnChange = Edt_Hum_PeriodChange
+      end
+      object Label15: TLabel
+        Position.X = 16.000000000000000000
+        Position.Y = 104.000000000000000000
+        Size.Width = 137.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Ctrl. period (sec)'
+      end
+      object ChBx_InvertHumOutput: TCheckBox
+        Position.X = 80.000000000000000000
+        Position.Y = 159.000000000000000000
+        Size.Width = 129.000000000000000000
+        Size.Height = 19.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 6
+        Text = 'Invert output'
+        OnChange = ChBx_InvertHumOutputChange
+      end
+    end
+    object TabItem_Timer: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = True
+      Size.Width = 54.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'Timer'
+      OnClick = TabItem_TimerClick
+      ExplicitSize.cx = 64.000000000000000000
+      ExplicitSize.cy = 49.000000000000000000
+      object Label16: TLabel
+        Position.X = 8.000000000000000000
+        Position.Y = 32.000000000000000000
+        Size.Width = 185.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Off interval (HH:MM)'
+      end
+      object Edt_Timer_OffInterval: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        TabOrder = 2
+        Text = '01'
+        Position.X = 192.000000000000000000
+        Position.Y = 24.000000000000000000
+        Size.Width = 100.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        OnChange = Edt_Timer_OffIntervalChange
+      end
+      object Label17: TLabel
+        Position.X = 8.000000000000000000
+        Position.Y = 72.000000000000000000
+        Size.Width = 137.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'On interval (sec)'
+      end
+      object Edt_Timer_OnInterval: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        TabOrder = 0
+        Position.X = 192.000000000000000000
+        Position.Y = 64.000000000000000000
+        Size.Width = 100.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        OnChange = Edt_Timer_OnIntervalChange
+      end
+    end
+    object TabItem_Protect: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 60.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'Protect'
+      OnClick = TabItem_ProtectClick
+      object Edt_OTP_Value: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        TabOrder = 9
+        Position.X = 216.000000000000000000
+        Position.Y = 8.000000000000000000
+        Size.Width = 84.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        OnChange = Edt_OTP_ValueChange
+      end
+      object Label18: TLabel
+        Position.X = 8.000000000000000000
+        Position.Y = 16.000000000000000000
+        Size.Width = 185.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Over temperature (oC)'
+      end
+      object Label19: TLabel
+        Position.X = 88.000000000000000000
+        Position.Y = 40.000000000000000000
+        Size.Width = 105.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'for minutes'
+      end
+      object Edt_OTP_Time: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        TabOrder = 5
+        Position.X = 216.000000000000000000
+        Position.Y = 40.000000000000000000
+        Size.Width = 84.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        OnChange = Edt_OTP_TimeChange
+      end
+      object Edt_UTP_Time: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        TabOrder = 2
+        Position.X = 216.000000000000000000
+        Position.Y = 112.000000000000000000
+        Size.Width = 84.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        OnChange = Edt_UTP_TimeChange
+      end
+      object Label20: TLabel
+        Position.X = 88.000000000000000000
+        Position.Y = 112.000000000000000000
+        Size.Width = 105.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'for minutes'
+      end
+      object Label21: TLabel
+        Position.X = 8.000000000000000000
+        Position.Y = 88.000000000000000000
+        Size.Width = 201.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Under temperature (oC)'
+      end
+      object Edt_UTP_Value: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        TabOrder = 6
+        Position.X = 216.000000000000000000
+        Position.Y = 80.000000000000000000
+        Size.Width = 84.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        OnChange = Edt_UTP_ValueChange
+      end
+      object Label22: TLabel
+        Position.X = 48.000000000000000000
+        Position.Y = 160.000000000000000000
+        Size.Width = 153.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Over humidity (%)'
+      end
+      object Edt_OHP_Value: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        TabOrder = 8
+        Position.X = 216.000000000000000000
+        Position.Y = 152.000000000000000000
+        Size.Width = 84.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        OnChange = Edt_OHP_ValueChange
+      end
+      object Edt_OHP_Time: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        TabOrder = 4
+        Position.X = 216.000000000000000000
+        Position.Y = 184.000000000000000000
+        Size.Width = 84.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        OnChange = Edt_OHP_TimeChange
+      end
+      object Label23: TLabel
+        Position.X = 88.000000000000000000
+        Position.Y = 192.000000000000000000
+        Size.Width = 105.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'for minutes'
+      end
+      object Label24: TLabel
+        Position.X = 32.000000000000000000
+        Position.Y = 232.000000000000000000
+        Size.Width = 169.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Under humidity (%)'
+      end
+      object Edt_UHP_Value: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        TabOrder = 7
+        Position.X = 216.000000000000000000
+        Position.Y = 224.000000000000000000
+        Size.Width = 84.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        OnChange = Edt_UHP_ValueChange
+      end
+      object Edt_UHP_Time: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        TabOrder = 3
+        Position.X = 216.000000000000000000
+        Position.Y = 256.000000000000000000
+        Size.Width = 84.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        OnChange = Edt_UHP_TimeChange
+      end
+      object Label25: TLabel
+        Position.X = 88.000000000000000000
+        Position.Y = 264.000000000000000000
+        Size.Width = 105.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'for minutes'
+      end
+    end
+  end
+  object Timer: TTimer
+    Enabled = False
+    Interval = 500
+    OnTimer = TimerTimer
+    Left = 320
+    Top = 368
+  end
+end

@@ -1,0 +1,80 @@
+inherited TabbedForm_NmXhdpiPh: TTabbedForm_NmXhdpiPh
+  ClientHeight = 615
+  ClientWidth = 400
+  DesignerMasterStyle = 3
+  inherited TabControl: TTabControl
+    Size.Width = 400.000000000000000000
+    Size.Height = 615.000000000000000000
+    Sizes = (
+      400s
+      566s
+      400s
+      566s
+      400s
+      566s
+      400s
+      566s
+      400s
+      566s
+      400s
+      566s
+      400s
+      566s)
+    inherited TabItem_Connect: TTabItem
+      Size.Width = 57.000000000000000000
+      ExplicitSize.cx = 64.000000000000000000
+      ExplicitSize.cy = 49.000000000000000000
+    end
+    inherited TabItem_Data: TTabItem
+      Size.Width = 57.000000000000000000
+      ExplicitSize.cx = 64.000000000000000000
+      ExplicitSize.cy = 49.000000000000000000
+    end
+    inherited TabItem_Output: TTabItem
+      Size.Width = 57.000000000000000000
+      ExplicitSize.cx = 64.000000000000000000
+      ExplicitSize.cy = 49.000000000000000000
+      inherited ComboBox_Output1: TComboBox
+        TabOrder = 14
+      end
+      inherited ComboBox_Output2: TComboBox
+        TabOrder = 13
+      end
+      inherited ComboBox_Output3: TComboBox
+        TabOrder = 12
+      end
+      inherited TrackBar_HeaterPower: TTrackBar
+        Value = 100.000000000000000000
+      end
+    end
+    inherited TabItem_TempCtrl: TTabItem
+      Size.Width = 57.000000000000000000
+      ExplicitSize.cx = 64.000000000000000000
+      ExplicitSize.cy = 49.000000000000000000
+    end
+    inherited TabItem_HumCtrl: TTabItem
+      Size.Width = 57.000000000000000000
+      ExplicitSize.cx = 64.000000000000000000
+      ExplicitSize.cy = 49.000000000000000000
+    end
+    inherited TabItem_Timer: TTabItem
+      Size.Width = 57.000000000000000000
+      ExplicitSize.cx = 64.000000000000000000
+      ExplicitSize.cy = 49.000000000000000000
+      inherited Edt_Timer_OffInterval: TEdit
+        TabOrder = 3
+      end
+    end
+    inherited TabItem_Protect: TTabItem
+      Size.Width = 58.000000000000000000
+      ExplicitSize.cx = 58.000000000000000000
+      ExplicitSize.cy = 49.000000000000000000
+      inherited Edt_OHP_Value: TEdit
+        TabOrder = 7
+      end
+      inherited Edt_UHP_Value: TEdit
+        TabOrder = 8
+      end
+    end
+  end
+end
