@@ -668,6 +668,69 @@ uint32_t HAL_GetTick(void)
   return uwTick;
 }
 /* ---------------------------------------------------------------------------*/
+// Protection function
+short int iOTPValue; // temperature: 100 -- 1 oC, 32768 -- 327.68 oC
+unsigned short int iOTPTime;
+short int iUTPValue;
+unsigned short int iUTPTime;
+short int iOHPValue; // humidity: 100 -- 1%, 10000 -- 100%
+unsigned short int iOHPTime;
+short int iUHPValue;
+unsigned short int iUHPTime;
+
+// counters in seconds
+unsigned short int iOTPCounter = 0;
+unsigned short int iUTPCounter = 0;
+unsigned short int iOHPCounter = 0;
+unsigned short int iUHPCounter = 0;
+
+#define BEEP_ON() HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_SET);
+#define BEEP_OFF() HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_RESET);
+
+unsigned char bTemperatureFault = 0;
+unsigned char bHumidityFault = 0;
+
+void CheckProtection()
+{
+  if (iTemperature > iOTPValue)
+	{
+		iOTPCounter++;
+		if (iOTPCounter > iOTPTime)
+			bTemperatureFault = 1;
+	}
+	else
+		iOTPCounter = 0;
+	
+  if (iTemperature < iUTPValue)
+	{
+		iUTPCounter++;
+		if (iUTPCounter > iUTPTime)
+			bTemperatureFault = 1;
+	}
+	else
+		iUTPCounter = 0;
+	
+  if (iHumidity > iOHPValue)
+	{
+		iOHPCounter++;
+		if (iOHPCounter > iOHPTime)
+			bHumidityFault = 1;
+	}
+	else
+		iOHPCounter = 0;
+	
+  if (iHumidity < iUHPValue)
+	{
+		iUHPCounter++;
+		if (iUHPCounter > iUHPTime)
+			bHumidityFault = 1;
+	}
+	else
+		iUHPCounter = 0;
+	
+  if (bTemperatureFault || bHumidityFault) BEEP_ON();
+}
+/* ---------------------------------------------------------------------------*/
 /* USER CODE END 0 */
 
 int main(void)
@@ -724,8 +787,17 @@ int main(void)
   
   Modbus_CreateEntry("Timer on interval", 17, &iTimerOnInterval, 0, 0);
   Modbus_CreateEntry("Timer off interval", 18, 0, TimerOff_RxCB, TimerOff_TxCB);
+	
+  Modbus_CreateEntry("Protection OTP value", 19, &iOTPValue, 0, 0); // MODBUS_ADDR_OTP_VALUE 19
+  Modbus_CreateEntry("Protection OTP time", 20, &iOTPTime, 0, 0); // MODBUS_ADDR_OTP_TIME 20
+  Modbus_CreateEntry("Protection UTP value", 21, &iUTPValue, 0, 0); // MODBUS_ADDR_UTP_VALUE 21
+  Modbus_CreateEntry("Protection UTP time", 22, &iUTPTime, 0, 0); // MODBUS_ADDR_UTP_TIME 22
+  Modbus_CreateEntry("Protection OHP value", 23, &iOHPValue, 0, 0); // MODBUS_ADDR_OHP_VALUE 23
+  Modbus_CreateEntry("Protection OHP time", 24, &iOHPTime, 0, 0); // MODBUS_ADDR_OHP_TIME 24
+  Modbus_CreateEntry("Protection UHP value", 25, &iUHPValue, 0, 0); // MODBUS_ADDR_UHP_VALUE 25
+  Modbus_CreateEntry("Protection UHP time", 26, &iUHPTime, 0, 0); // MODBUS_ADDR_UHP_TIME 26
 
-  Modbus_CreateEntry("Flash write", 19, 0, FlashWrite_RxCB, 0);
+  Modbus_CreateEntry("Flash write", 27, 0, FlashWrite_RxCB, 0);
   
   ReadFlash(); // read parameters from Flash memory
   
@@ -784,6 +856,8 @@ int main(void)
           TimerOn();
         }
       }
+			
+			CheckProtection();
     }
     
     // heater controller action
@@ -1151,6 +1225,10 @@ void MX_GPIO_Init(void)
   
   GPIO_InitStruct.Pin = CH2_Pin;
   HAL_GPIO_Init(CH2_GPIO_Port, &GPIO_InitStruct);
+	
+  GPIO_InitStruct.Pin = BEEP_Pin;
+  HAL_GPIO_Init(BEEP_GPIO_Port, &GPIO_InitStruct);
+	HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_RESET);
 
   /* EXTI interrupt init*/
   HAL_NVIC_SetPriority(EXTI4_15_IRQn, 0, 0);
@@ -1272,7 +1350,16 @@ void ProgramFlash()
   
   if (HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, iMemRWAddr, iTimerOnInterval) != HAL_OK) { HAL_GPIO_WritePin(LEDR_GPIO_Port, LEDR_Pin, GPIO_PIN_SET);  return; } iMemRWAddr+=4;
   if (HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, iMemRWAddr, iTimerOffInterval) != HAL_OK) { HAL_GPIO_WritePin(LEDR_GPIO_Port, LEDR_Pin, GPIO_PIN_SET);  return; } iMemRWAddr+=4;
-    
+ 
+  if (HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, iMemRWAddr, iOTPValue) != HAL_OK) { HAL_GPIO_WritePin(LEDR_GPIO_Port, LEDR_Pin, GPIO_PIN_SET);  return; } iMemRWAddr+=4;
+  if (HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, iMemRWAddr, iOTPTime) != HAL_OK) { HAL_GPIO_WritePin(LEDR_GPIO_Port, LEDR_Pin, GPIO_PIN_SET);  return; } iMemRWAddr+=4;
+  if (HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, iMemRWAddr, iUTPValue) != HAL_OK) { HAL_GPIO_WritePin(LEDR_GPIO_Port, LEDR_Pin, GPIO_PIN_SET);  return; } iMemRWAddr+=4;
+  if (HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, iMemRWAddr, iUTPTime) != HAL_OK) { HAL_GPIO_WritePin(LEDR_GPIO_Port, LEDR_Pin, GPIO_PIN_SET);  return; } iMemRWAddr+=4;
+  if (HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, iMemRWAddr, iOHPValue) != HAL_OK) { HAL_GPIO_WritePin(LEDR_GPIO_Port, LEDR_Pin, GPIO_PIN_SET);  return; } iMemRWAddr+=4;
+  if (HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, iMemRWAddr, iOHPTime) != HAL_OK) { HAL_GPIO_WritePin(LEDR_GPIO_Port, LEDR_Pin, GPIO_PIN_SET);  return; } iMemRWAddr+=4;
+  if (HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, iMemRWAddr, iUHPValue) != HAL_OK) { HAL_GPIO_WritePin(LEDR_GPIO_Port, LEDR_Pin, GPIO_PIN_SET);  return; } iMemRWAddr+=4;
+  if (HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, iMemRWAddr, iUHPTime) != HAL_OK) { HAL_GPIO_WritePin(LEDR_GPIO_Port, LEDR_Pin, GPIO_PIN_SET);  return; } iMemRWAddr+=4;
+	
     // lock flash control
   HAL_FLASH_Lock();
 }
@@ -1300,6 +1387,15 @@ void ReadFlash()
   
   iTimerOnInterval = *((uint32_t*)(iMemRWAddr)); iMemRWAddr+=4;
   iTimerOffInterval = *((uint32_t*)(iMemRWAddr)); iMemRWAddr+=4;
+	
+  iOTPValue = *((uint32_t*)(iMemRWAddr)); iMemRWAddr+=4;
+  iOTPTime = *((uint32_t*)(iMemRWAddr)); iMemRWAddr+=4;
+  iUTPValue = *((uint32_t*)(iMemRWAddr)); iMemRWAddr+=4;
+  iUTPTime = *((uint32_t*)(iMemRWAddr)); iMemRWAddr+=4;
+  iOHPValue = *((uint32_t*)(iMemRWAddr)); iMemRWAddr+=4;
+  iOHPTime = *((uint32_t*)(iMemRWAddr)); iMemRWAddr+=4;
+  iUHPValue = *((uint32_t*)(iMemRWAddr)); iMemRWAddr+=4;
+  iUHPTime = *((uint32_t*)(iMemRWAddr)); iMemRWAddr+=4;
 }
 /* USER CODE END 4 */
 

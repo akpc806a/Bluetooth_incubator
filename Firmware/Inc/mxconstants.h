@@ -58,7 +58,8 @@
 #define CROSS_NEG_FALL_Pin GPIO_PIN_3
 #define CROSS_NEG_FALL_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
-
+#define BEEP_Pin GPIO_PIN_11
+#define BEEP_GPIO_Port GPIOA
 /* USER CODE END Private defines */
 
 /**
