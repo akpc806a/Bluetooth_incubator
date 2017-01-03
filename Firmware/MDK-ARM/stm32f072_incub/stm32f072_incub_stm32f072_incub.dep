@@ -1,712 +1,0 @@
-Dependencies for Project 'stm32f072_incub', Target 'stm32f072_incub': (DO NOT MODIFY !)
-F (../Src/stm32f0xx_it.c)(0x57F96896)(-c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include --C99-I C:\Users\aborisevich\Documents\Misc\Eggs\Firmware\stm32f072_incub\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="518" -D_RTE_ -DSTM32F030 -DUSE_HAL_DRIVER -DSTM32F030x6-o stm32f072_incub\stm32f0xx_it.o --omf_browse stm32f072_incub\stm32f0xx_it.crf --depend stm32f072_incub\stm32f0xx_it.d)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h)(0x57B0909A)
-I (../Inc/stm32f0xx_hal_conf.h)(0x57B2A6B4)
-I (../Inc/mxconstants.h)(0x57F9698A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h)(0x57B0909A)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h)(0x5801932E)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f030x6.h)(0x57B09094)
-I (../Drivers/CMSIS/Include/core_cm0.h)(0x57B09098)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55DBFE70)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x57B09098)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h)(0x57B09094)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x57B0909A)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x55DBFE66)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_cortex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h)(0x57B0909A)
-I (../Inc/stm32f0xx_it.h)(0x57B2A6B4)
-F (../Src/main.c)(0x580C0CFF)(-c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include --C99-I C:\Users\aborisevich\Documents\Misc\Eggs\Firmware\stm32f072_incub\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="518" -D_RTE_ -DSTM32F030 -DUSE_HAL_DRIVER -DSTM32F030x6-o stm32f072_incub\main.o --omf_browse stm32f072_incub\main.crf --depend stm32f072_incub\main.d)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h)(0x57B0909A)
-I (../Inc/stm32f0xx_hal_conf.h)(0x57B2A6B4)
-I (../Inc/mxconstants.h)(0x57F9698A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h)(0x57B0909A)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h)(0x5801932E)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f030x6.h)(0x57B09094)
-I (../Drivers/CMSIS/Include/core_cm0.h)(0x57B09098)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55DBFE70)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x57B09098)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h)(0x57B09094)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x57B0909A)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x55DBFE66)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_cortex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h)(0x57B0909A)
-I (../Inc/modbus.h)(0x57CA5EBC)
-I (../Inc/queue.h)(0x57CA4506)
-F (../Src/stm32f0xx_hal_msp.c)(0x57F96756)(-c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include --C99-I C:\Users\aborisevich\Documents\Misc\Eggs\Firmware\stm32f072_incub\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="518" -D_RTE_ -DSTM32F030 -DUSE_HAL_DRIVER -DSTM32F030x6-o stm32f072_incub\stm32f0xx_hal_msp.o --omf_browse stm32f072_incub\stm32f0xx_hal_msp.crf --depend stm32f072_incub\stm32f0xx_hal_msp.d)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h)(0x57B0909A)
-I (../Inc/stm32f0xx_hal_conf.h)(0x57B2A6B4)
-I (../Inc/mxconstants.h)(0x57F9698A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h)(0x57B0909A)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h)(0x5801932E)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f030x6.h)(0x57B09094)
-I (../Drivers/CMSIS/Include/core_cm0.h)(0x57B09098)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55DBFE70)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x57B09098)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h)(0x57B09094)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x57B0909A)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x55DBFE66)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_cortex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h)(0x57B0909A)
-F (..\Src\modbus.c)(0x57FC3618)(-c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include --C99-I C:\Users\aborisevich\Documents\Misc\Eggs\Firmware\stm32f072_incub\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="518" -D_RTE_ -DSTM32F030 -DUSE_HAL_DRIVER -DSTM32F030x6-o stm32f072_incub\modbus.o --omf_browse stm32f072_incub\modbus.crf --depend stm32f072_incub\modbus.d)
-I (../Inc/modbus.h)(0x57CA5EBC)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55DBFE70)
-F (startup_stm32f072xb.s)(0x57B2A6C0)(--cpu Cortex-M0 -g --apcs=interwork --pd "__MICROLIB SETA 1"-I C:\Users\aborisevich\Documents\Misc\Eggs\Firmware\stm32f072_incub\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include--pd "__UVISION_VERSION SETA 518" --pd "_RTE_ SETA 1" --pd "STM32F030 SETA 1"-o stm32f072_incub\startup_stm32f072xb.o --depend stm32f072_incub\startup_stm32f072xb.d)
-F (../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.c)(0x57B0909A)(-c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include --C99-I C:\Users\aborisevich\Documents\Misc\Eggs\Firmware\stm32f072_incub\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="518" -D_RTE_ -DSTM32F030 -DUSE_HAL_DRIVER -DSTM32F030x6-o stm32f072_incub\stm32f0xx_hal_cortex.o --omf_browse stm32f072_incub\stm32f0xx_hal_cortex.crf --depend stm32f072_incub\stm32f0xx_hal_cortex.d)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h)(0x57B0909A)
-I (../Inc/stm32f0xx_hal_conf.h)(0x57B2A6B4)
-I (../Inc/mxconstants.h)(0x57F9698A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h)(0x57B0909A)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h)(0x5801932E)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f030x6.h)(0x57B09094)
-I (../Drivers/CMSIS/Include/core_cm0.h)(0x57B09098)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55DBFE70)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x57B09098)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h)(0x57B09094)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x57B0909A)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x55DBFE66)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_cortex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h)(0x57B0909A)
-F (../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.c)(0x57B0909A)(-c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include --C99-I C:\Users\aborisevich\Documents\Misc\Eggs\Firmware\stm32f072_incub\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="518" -D_RTE_ -DSTM32F030 -DUSE_HAL_DRIVER -DSTM32F030x6-o stm32f072_incub\stm32f0xx_hal_flash_ex.o --omf_browse stm32f072_incub\stm32f0xx_hal_flash_ex.crf --depend stm32f072_incub\stm32f0xx_hal_flash_ex.d)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h)(0x57B0909A)
-I (../Inc/stm32f0xx_hal_conf.h)(0x57B2A6B4)
-I (../Inc/mxconstants.h)(0x57F9698A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h)(0x57B0909A)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h)(0x5801932E)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f030x6.h)(0x57B09094)
-I (../Drivers/CMSIS/Include/core_cm0.h)(0x57B09098)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55DBFE70)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x57B09098)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h)(0x57B09094)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x57B0909A)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x55DBFE66)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_cortex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h)(0x57B0909A)
-F (../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c)(0x57B0909A)(-c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include --C99-I C:\Users\aborisevich\Documents\Misc\Eggs\Firmware\stm32f072_incub\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="518" -D_RTE_ -DSTM32F030 -DUSE_HAL_DRIVER -DSTM32F030x6-o stm32f072_incub\stm32f0xx_hal_tim.o --omf_browse stm32f072_incub\stm32f0xx_hal_tim.crf --depend stm32f072_incub\stm32f0xx_hal_tim.d)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h)(0x57B0909A)
-I (../Inc/stm32f0xx_hal_conf.h)(0x57B2A6B4)
-I (../Inc/mxconstants.h)(0x57F9698A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h)(0x57B0909A)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h)(0x5801932E)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f030x6.h)(0x57B09094)
-I (../Drivers/CMSIS/Include/core_cm0.h)(0x57B09098)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55DBFE70)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x57B09098)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h)(0x57B09094)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x57B0909A)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x55DBFE66)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_cortex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h)(0x57B0909A)
-F (../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rtc_ex.c)(0x57B0909A)(-c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include --C99-I C:\Users\aborisevich\Documents\Misc\Eggs\Firmware\stm32f072_incub\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="518" -D_RTE_ -DSTM32F030 -DUSE_HAL_DRIVER -DSTM32F030x6-o stm32f072_incub\stm32f0xx_hal_rtc_ex.o --omf_browse stm32f072_incub\stm32f0xx_hal_rtc_ex.crf --depend stm32f072_incub\stm32f0xx_hal_rtc_ex.d)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h)(0x57B0909A)
-I (../Inc/stm32f0xx_hal_conf.h)(0x57B2A6B4)
-I (../Inc/mxconstants.h)(0x57F9698A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h)(0x57B0909A)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h)(0x5801932E)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f030x6.h)(0x57B09094)
-I (../Drivers/CMSIS/Include/core_cm0.h)(0x57B09098)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55DBFE70)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x57B09098)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h)(0x57B09094)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x57B0909A)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x55DBFE66)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_cortex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h)(0x57B0909A)
-F (../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c)(0x57B0909A)(-c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include --C99-I C:\Users\aborisevich\Documents\Misc\Eggs\Firmware\stm32f072_incub\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="518" -D_RTE_ -DSTM32F030 -DUSE_HAL_DRIVER -DSTM32F030x6-o stm32f072_incub\stm32f0xx_hal_i2c_ex.o --omf_browse stm32f072_incub\stm32f0xx_hal_i2c_ex.crf --depend stm32f072_incub\stm32f0xx_hal_i2c_ex.d)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h)(0x57B0909A)
-I (../Inc/stm32f0xx_hal_conf.h)(0x57B2A6B4)
-I (../Inc/mxconstants.h)(0x57F9698A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h)(0x57B0909A)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h)(0x5801932E)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f030x6.h)(0x57B09094)
-I (../Drivers/CMSIS/Include/core_cm0.h)(0x57B09098)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55DBFE70)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x57B09098)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h)(0x57B09094)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x57B0909A)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x55DBFE66)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_cortex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h)(0x57B0909A)
-F (../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.c)(0x57FC68FC)(-c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include --C99-I C:\Users\aborisevich\Documents\Misc\Eggs\Firmware\stm32f072_incub\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="518" -D_RTE_ -DSTM32F030 -DUSE_HAL_DRIVER -DSTM32F030x6-o stm32f072_incub\stm32f0xx_hal.o --omf_browse stm32f072_incub\stm32f0xx_hal.crf --depend stm32f072_incub\stm32f0xx_hal.d)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h)(0x57B0909A)
-I (../Inc/stm32f0xx_hal_conf.h)(0x57B2A6B4)
-I (../Inc/mxconstants.h)(0x57F9698A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h)(0x57B0909A)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h)(0x5801932E)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f030x6.h)(0x57B09094)
-I (../Drivers/CMSIS/Include/core_cm0.h)(0x57B09098)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55DBFE70)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x57B09098)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h)(0x57B09094)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x57B0909A)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x55DBFE66)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_cortex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h)(0x57B0909A)
-F (../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c)(0x57B0909A)(-c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include --C99-I C:\Users\aborisevich\Documents\Misc\Eggs\Firmware\stm32f072_incub\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="518" -D_RTE_ -DSTM32F030 -DUSE_HAL_DRIVER -DSTM32F030x6-o stm32f072_incub\stm32f0xx_hal_dma.o --omf_browse stm32f072_incub\stm32f0xx_hal_dma.crf --depend stm32f072_incub\stm32f0xx_hal_dma.d)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h)(0x57B0909A)
-I (../Inc/stm32f0xx_hal_conf.h)(0x57B2A6B4)
-I (../Inc/mxconstants.h)(0x57F9698A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h)(0x57B0909A)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h)(0x5801932E)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f030x6.h)(0x57B09094)
-I (../Drivers/CMSIS/Include/core_cm0.h)(0x57B09098)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55DBFE70)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x57B09098)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h)(0x57B09094)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x57B0909A)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x55DBFE66)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_cortex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h)(0x57B0909A)
-F (../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart_ex.c)(0x57B0909A)(-c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include --C99-I C:\Users\aborisevich\Documents\Misc\Eggs\Firmware\stm32f072_incub\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="518" -D_RTE_ -DSTM32F030 -DUSE_HAL_DRIVER -DSTM32F030x6-o stm32f072_incub\stm32f0xx_hal_uart_ex.o --omf_browse stm32f072_incub\stm32f0xx_hal_uart_ex.crf --depend stm32f072_incub\stm32f0xx_hal_uart_ex.d)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h)(0x57B0909A)
-I (../Inc/stm32f0xx_hal_conf.h)(0x57B2A6B4)
-I (../Inc/mxconstants.h)(0x57F9698A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h)(0x57B0909A)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h)(0x5801932E)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f030x6.h)(0x57B09094)
-I (../Drivers/CMSIS/Include/core_cm0.h)(0x57B09098)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55DBFE70)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x57B09098)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h)(0x57B09094)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x57B0909A)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x55DBFE66)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_cortex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h)(0x57B0909A)
-F (../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.c)(0x57B0909A)(-c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include --C99-I C:\Users\aborisevich\Documents\Misc\Eggs\Firmware\stm32f072_incub\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="518" -D_RTE_ -DSTM32F030 -DUSE_HAL_DRIVER -DSTM32F030x6-o stm32f072_incub\stm32f0xx_hal_rcc.o --omf_browse stm32f072_incub\stm32f0xx_hal_rcc.crf --depend stm32f072_incub\stm32f0xx_hal_rcc.d)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h)(0x57B0909A)
-I (../Inc/stm32f0xx_hal_conf.h)(0x57B2A6B4)
-I (../Inc/mxconstants.h)(0x57F9698A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h)(0x57B0909A)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h)(0x5801932E)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f030x6.h)(0x57B09094)
-I (../Drivers/CMSIS/Include/core_cm0.h)(0x57B09098)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55DBFE70)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x57B09098)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h)(0x57B09094)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x57B0909A)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x55DBFE66)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_cortex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h)(0x57B0909A)
-F (../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.c)(0x57B0909A)(-c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include --C99-I C:\Users\aborisevich\Documents\Misc\Eggs\Firmware\stm32f072_incub\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="518" -D_RTE_ -DSTM32F030 -DUSE_HAL_DRIVER -DSTM32F030x6-o stm32f072_incub\stm32f0xx_hal_tim_ex.o --omf_browse stm32f072_incub\stm32f0xx_hal_tim_ex.crf --depend stm32f072_incub\stm32f0xx_hal_tim_ex.d)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h)(0x57B0909A)
-I (../Inc/stm32f0xx_hal_conf.h)(0x57B2A6B4)
-I (../Inc/mxconstants.h)(0x57F9698A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h)(0x57B0909A)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h)(0x5801932E)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f030x6.h)(0x57B09094)
-I (../Drivers/CMSIS/Include/core_cm0.h)(0x57B09098)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55DBFE70)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x57B09098)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h)(0x57B09094)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x57B0909A)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x55DBFE66)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_cortex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h)(0x57B0909A)
-F (../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c)(0x57B0909A)(-c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include --C99-I C:\Users\aborisevich\Documents\Misc\Eggs\Firmware\stm32f072_incub\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="518" -D_RTE_ -DSTM32F030 -DUSE_HAL_DRIVER -DSTM32F030x6-o stm32f072_incub\stm32f0xx_hal_pwr_ex.o --omf_browse stm32f072_incub\stm32f0xx_hal_pwr_ex.crf --depend stm32f072_incub\stm32f0xx_hal_pwr_ex.d)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h)(0x57B0909A)
-I (../Inc/stm32f0xx_hal_conf.h)(0x57B2A6B4)
-I (../Inc/mxconstants.h)(0x57F9698A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h)(0x57B0909A)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h)(0x5801932E)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f030x6.h)(0x57B09094)
-I (../Drivers/CMSIS/Include/core_cm0.h)(0x57B09098)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55DBFE70)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x57B09098)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h)(0x57B09094)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x57B0909A)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x55DBFE66)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_cortex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h)(0x57B0909A)
-F (../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rtc.c)(0x57B0909A)(-c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include --C99-I C:\Users\aborisevich\Documents\Misc\Eggs\Firmware\stm32f072_incub\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="518" -D_RTE_ -DSTM32F030 -DUSE_HAL_DRIVER -DSTM32F030x6-o stm32f072_incub\stm32f0xx_hal_rtc.o --omf_browse stm32f072_incub\stm32f0xx_hal_rtc.crf --depend stm32f072_incub\stm32f0xx_hal_rtc.d)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h)(0x57B0909A)
-I (../Inc/stm32f0xx_hal_conf.h)(0x57B2A6B4)
-I (../Inc/mxconstants.h)(0x57F9698A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h)(0x57B0909A)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h)(0x5801932E)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f030x6.h)(0x57B09094)
-I (../Drivers/CMSIS/Include/core_cm0.h)(0x57B09098)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55DBFE70)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x57B09098)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h)(0x57B09094)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x57B0909A)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x55DBFE66)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_cortex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h)(0x57B0909A)
-F (../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart.c)(0x57B0909A)(-c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include --C99-I C:\Users\aborisevich\Documents\Misc\Eggs\Firmware\stm32f072_incub\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="518" -D_RTE_ -DSTM32F030 -DUSE_HAL_DRIVER -DSTM32F030x6-o stm32f072_incub\stm32f0xx_hal_uart.o --omf_browse stm32f072_incub\stm32f0xx_hal_uart.crf --depend stm32f072_incub\stm32f0xx_hal_uart.d)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h)(0x57B0909A)
-I (../Inc/stm32f0xx_hal_conf.h)(0x57B2A6B4)
-I (../Inc/mxconstants.h)(0x57F9698A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h)(0x57B0909A)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h)(0x5801932E)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f030x6.h)(0x57B09094)
-I (../Drivers/CMSIS/Include/core_cm0.h)(0x57B09098)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55DBFE70)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x57B09098)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h)(0x57B09094)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x57B0909A)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x55DBFE66)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_cortex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h)(0x57B0909A)
-F (../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.c)(0x57B0909A)(-c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include --C99-I C:\Users\aborisevich\Documents\Misc\Eggs\Firmware\stm32f072_incub\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="518" -D_RTE_ -DSTM32F030 -DUSE_HAL_DRIVER -DSTM32F030x6-o stm32f072_incub\stm32f0xx_hal_gpio.o --omf_browse stm32f072_incub\stm32f0xx_hal_gpio.crf --depend stm32f072_incub\stm32f0xx_hal_gpio.d)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h)(0x57B0909A)
-I (../Inc/stm32f0xx_hal_conf.h)(0x57B2A6B4)
-I (../Inc/mxconstants.h)(0x57F9698A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h)(0x57B0909A)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h)(0x5801932E)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f030x6.h)(0x57B09094)
-I (../Drivers/CMSIS/Include/core_cm0.h)(0x57B09098)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55DBFE70)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x57B09098)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h)(0x57B09094)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x57B0909A)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x55DBFE66)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_cortex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h)(0x57B0909A)
-F (../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c)(0x57B0909A)(-c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include --C99-I C:\Users\aborisevich\Documents\Misc\Eggs\Firmware\stm32f072_incub\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="518" -D_RTE_ -DSTM32F030 -DUSE_HAL_DRIVER -DSTM32F030x6-o stm32f072_incub\stm32f0xx_hal_pwr.o --omf_browse stm32f072_incub\stm32f0xx_hal_pwr.crf --depend stm32f072_incub\stm32f0xx_hal_pwr.d)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h)(0x57B0909A)
-I (../Inc/stm32f0xx_hal_conf.h)(0x57B2A6B4)
-I (../Inc/mxconstants.h)(0x57F9698A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h)(0x57B0909A)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h)(0x5801932E)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f030x6.h)(0x57B09094)
-I (../Drivers/CMSIS/Include/core_cm0.h)(0x57B09098)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55DBFE70)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x57B09098)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h)(0x57B09094)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x57B0909A)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x55DBFE66)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_cortex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h)(0x57B0909A)
-F (../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.c)(0x57B0909A)(-c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include --C99-I C:\Users\aborisevich\Documents\Misc\Eggs\Firmware\stm32f072_incub\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="518" -D_RTE_ -DSTM32F030 -DUSE_HAL_DRIVER -DSTM32F030x6-o stm32f072_incub\stm32f0xx_hal_flash.o --omf_browse stm32f072_incub\stm32f0xx_hal_flash.crf --depend stm32f072_incub\stm32f0xx_hal_flash.d)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h)(0x57B0909A)
-I (../Inc/stm32f0xx_hal_conf.h)(0x57B2A6B4)
-I (../Inc/mxconstants.h)(0x57F9698A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h)(0x57B0909A)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h)(0x5801932E)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f030x6.h)(0x57B09094)
-I (../Drivers/CMSIS/Include/core_cm0.h)(0x57B09098)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55DBFE70)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x57B09098)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h)(0x57B09094)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x57B0909A)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x55DBFE66)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_cortex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h)(0x57B0909A)
-F (../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.c)(0x57B0909A)(-c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include --C99-I C:\Users\aborisevich\Documents\Misc\Eggs\Firmware\stm32f072_incub\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="518" -D_RTE_ -DSTM32F030 -DUSE_HAL_DRIVER -DSTM32F030x6-o stm32f072_incub\stm32f0xx_hal_rcc_ex.o --omf_browse stm32f072_incub\stm32f0xx_hal_rcc_ex.crf --depend stm32f072_incub\stm32f0xx_hal_rcc_ex.d)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h)(0x57B0909A)
-I (../Inc/stm32f0xx_hal_conf.h)(0x57B2A6B4)
-I (../Inc/mxconstants.h)(0x57F9698A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h)(0x57B0909A)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h)(0x5801932E)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f030x6.h)(0x57B09094)
-I (../Drivers/CMSIS/Include/core_cm0.h)(0x57B09098)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55DBFE70)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x57B09098)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h)(0x57B09094)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x57B0909A)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x55DBFE66)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_cortex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h)(0x57B0909A)
-F (../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c)(0x57B0909A)(-c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include --C99-I C:\Users\aborisevich\Documents\Misc\Eggs\Firmware\stm32f072_incub\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="518" -D_RTE_ -DSTM32F030 -DUSE_HAL_DRIVER -DSTM32F030x6-o stm32f072_incub\stm32f0xx_hal_i2c.o --omf_browse stm32f072_incub\stm32f0xx_hal_i2c.crf --depend stm32f072_incub\stm32f0xx_hal_i2c.d)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h)(0x57B0909A)
-I (../Inc/stm32f0xx_hal_conf.h)(0x57B2A6B4)
-I (../Inc/mxconstants.h)(0x57F9698A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h)(0x57B0909A)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h)(0x5801932E)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f030x6.h)(0x57B09094)
-I (../Drivers/CMSIS/Include/core_cm0.h)(0x57B09098)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55DBFE70)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x57B09098)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h)(0x57B09094)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x57B0909A)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x55DBFE66)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_cortex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h)(0x57B0909A)
-F (../Drivers/CMSIS/Device/ST/STM32F0xx/Source/Templates/system_stm32f0xx.c)(0x57B09094)(-c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include --C99-I C:\Users\aborisevich\Documents\Misc\Eggs\Firmware\stm32f072_incub\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="518" -D_RTE_ -DSTM32F030 -DUSE_HAL_DRIVER -DSTM32F030x6-o stm32f072_incub\system_stm32f0xx.o --omf_browse stm32f072_incub\system_stm32f0xx.crf --depend stm32f072_incub\system_stm32f0xx.d)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h)(0x5801932E)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f030x6.h)(0x57B09094)
-I (../Drivers/CMSIS/Include/core_cm0.h)(0x57B09098)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55DBFE70)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x57B09098)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x57B09098)
-I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h)(0x57B09094)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h)(0x57B0909A)
-I (../Inc/stm32f0xx_hal_conf.h)(0x57B2A6B4)
-I (../Inc/mxconstants.h)(0x57F9698A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x57B0909A)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x55DBFE66)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_cortex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim_ex.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h)(0x57B0909A)
-I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h)(0x57B0909A)

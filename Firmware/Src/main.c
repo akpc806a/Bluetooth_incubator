@@ -724,7 +724,7 @@ int main(void)
   
   Modbus_CreateEntry("Timer on interval", 17, &iTimerOnInterval, 0, 0);
   Modbus_CreateEntry("Timer off interval", 18, 0, TimerOff_RxCB, TimerOff_TxCB);
-  
+
   Modbus_CreateEntry("Flash write", 19, 0, FlashWrite_RxCB, 0);
   
   ReadFlash(); // read parameters from Flash memory
@@ -841,7 +841,7 @@ int main(void)
         Beep_Off();
       }
       
-      HAL_GPIO_TogglePin(GPIOA, LEDR_Pin);
+      HAL_GPIO_TogglePin(GPIOA, LEDG_Pin);
     }
 
     // humidity controller action
@@ -1106,7 +1106,7 @@ void MX_GPIO_Init(void)
   __GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, LEDR_Pin|LEDG_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, LEDG_Pin|LEDR_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(CH0_GPIO_Port, CH0_Pin, GPIO_PIN_RESET);
@@ -1115,8 +1115,8 @@ void MX_GPIO_Init(void)
   //HAL_GPIO_WritePin(GPIOB, CH1_Pin|CH2_Pin, GPIO_PIN_RESET);
   //HAL_GPIO_WritePin(CH1_GPIO_Port, CH1_Pin, GPIO_PIN_SET);
 
-  /*Configure GPIO pins : LEDR_Pin LEDG_Pin */
-  GPIO_InitStruct.Pin = LEDR_Pin|LEDG_Pin;
+  /*Configure GPIO pins : LEDG_Pin LEDR_Pin */
+  GPIO_InitStruct.Pin = LEDG_Pin|LEDR_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
@@ -1199,7 +1199,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *UartHandle)
     Error_Handler();
   }
   
-  HAL_GPIO_TogglePin(GPIOA, LEDG_Pin);
+  HAL_GPIO_TogglePin(LEDG_GPIO_Port, LEDG_Pin);
   
 
 }
