@@ -38,9 +38,9 @@
 
 /* Private define ------------------------------------------------------------*/
 
-#define LEDR_Pin GPIO_PIN_7
+#define LEDR_Pin GPIO_PIN_6
 #define LEDR_GPIO_Port GPIOA
-#define LEDG_Pin GPIO_PIN_6
+#define LEDG_Pin GPIO_PIN_7
 #define LEDG_GPIO_Port GPIOA
 #define CROSS_POS_Pin GPIO_PIN_8
 #define CROSS_POS_GPIO_Port GPIOA
