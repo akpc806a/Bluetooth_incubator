@@ -419,7 +419,7 @@ void Modbus_Process(uint8_t data)
       {
         Modbus_Update_FromStored(); // update stored variables before
         Modbus_Set_Data(startAddr, dataToWrite); // the last variable is not stored, update it directly
-        Modbus_Response_06_16(startAddr, numPoints);
+        Modbus_Response_06_16(startAddr-numPoints+1, numPoints);
       }
     }
     //else
