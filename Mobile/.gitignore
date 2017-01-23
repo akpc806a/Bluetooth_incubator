@@ -27,3 +27,5 @@ Android
 settings
 *.rar
 *.zip
+__recovery
+__history

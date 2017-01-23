@@ -35,7 +35,7 @@
 
 /* USER CODE BEGIN Includes */
 #include "modbus.h"
-
+#include <math.h>
 
 /* USER CODE END Includes */
 
@@ -108,7 +108,29 @@ uint32_t iTimerOffInterval = 60;
 #define SetHumidityFaultOn() iOutputState |= 0x8000
 #define SetHumidityFaultOff() iOutputState &= ~0x8000
 
-uint16_t iHeaterCtrlEnPI = 1; // 0 -- hysteresis, 1 -- PI 
+// temperature controller types
+#define CTRL_TYPE_ONOFF 0
+#define CTRL_TYPE_PI 1
+#define CTRL_TYPE_HYBRID 2
+uint16_t iHeaterCtrlType = CTRL_TYPE_PI; // temperature controller type
+
+// hybrid controller stuff
+
+typedef enum
+{
+    HYBRID_STATE_IDLE = 0,
+    HYBRID_STATE_ONOFF,
+    HYBRID_STATE_RATIO,
+    HYBRID_STATE_PI
+} __attribute__ ((__packed__)) T_HybridCtrl_State;
+
+T_HybridCtrl_State bHybridCtrlState = HYBRID_STATE_IDLE;
+int iHybridCtrlPulseCount = 0;
+#define HYBRID_CTRL_PULSE_COUNT 5 // pulse count before taking on/off ratio
+int iHybridCtrlOnCounter = 0;
+int iHybridCtrlOffCounter = 0;
+uint8_t bHybridCtrlHeaterOn = 0;
+
 uint16_t iHumidityOutputInv = 0; // 1 -- inversion of output for humidity
 
 GPIO_InitTypeDef GPIO_InitStruct;
@@ -531,7 +553,7 @@ void HAL_TIM_OC_DelayElapsedCallback(TIM_HandleTypeDef *htim)
   else
   if (htim == &htim16)
   {
-    if (iHeaterCtrlEnPI || !IsManualControl())
+    if (iHeaterCtrlType || IsManualControl())
     {
       if (iTriacDuty > 1)
         HeaterOn();
@@ -564,7 +586,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
   if (GPIO_Pin == CROSS_POS_FALL_Pin)
   {
-    if (iHeaterCtrlEnPI || IsManualControl()) // if regulator enabled
+    if (iHeaterCtrlType || IsManualControl()) // if regulator enabled
     {
       
     }
@@ -572,7 +594,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
   else
   if (GPIO_Pin == CROSS_POS_Pin)
   {
-    if (iHeaterCtrlEnPI || IsManualControl()) // if regulator enabled
+    if (iHeaterCtrlType || IsManualControl()) // if regulator enabled
     {
       HeaterOff(); // TODO: to enlarge used power, we can turn off after some pause after posedge
       TimerTriac_Restart();
@@ -581,7 +603,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
   else
   if (GPIO_Pin == CROSS_NEG_FALL_Pin)
   {
-    if (iHeaterCtrlEnPI || IsManualControl()) // if regulator enabled
+    if (iHeaterCtrlType || IsManualControl()) // if regulator enabled
     {
       
     }
@@ -589,7 +611,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
   else
   if (GPIO_Pin == CROSS_NEG_Pin)
   {
-    if (iHeaterCtrlEnPI || IsManualControl()) // if regulator enabled
+    if (iHeaterCtrlType || IsManualControl()) // if regulator enabled
     {
       HeaterOff();
       TimerTriac_Restart();
@@ -773,7 +795,7 @@ int main(void)
   Modbus_CreateEntry("CH1 mapping", 5, &iCH1_Mapping, 0, 0);
   Modbus_CreateEntry("CH2 mapping", 6, &iCH2_Mapping, 0, 0);
   
-  Modbus_CreateEntry("Temp.Ctrl type", 7, &iHeaterCtrlEnPI, 0, 0);
+  Modbus_CreateEntry("Temp.Ctrl type", 7, &iHeaterCtrlType, 0, 0);
   Modbus_CreateEntry("Temp.Ctrl interval", 8, &iHeaterCtrlInterval, 0, 0);
   Modbus_CreateEntry("Temp.Ctrl hysteresis", 9, 0, TemprHysteresis_RxCB, TemprHysteresis_TxCB);
   Modbus_CreateEntry("Temp.Ctrl Kp", 10, 0, TemprKp_RxCB, TemprKp_TxCB);
@@ -872,19 +894,22 @@ int main(void)
       if (!IsManualControl()) // if regulator enabled
       {
         fE = fTemprRef - fRes;
-        if (iHeaterCtrlEnPI)
+        if (iHeaterCtrlType == CTRL_TYPE_PI)
         {
           // PI controller action
           fRes = PI_Controller(fE); 
           
-          //iTriacDuty = ;
-          SetHeaterState(fRes*10); // this just for indication
+          SetHeaterState(fRes*10); // setting iTriacDuty variable
           if (iTriacDuty > 1)
             TimerTriac_Load(iTriacDuty);
           else
             HeaterOff();
+					
+					
+					bHybridCtrlState = HYBRID_STATE_IDLE; // TODO: move it to Modbus write callback
         }
         else
+				if (iHeaterCtrlType == CTRL_TYPE_ONOFF)
         {
           if (fE < -fTemprHysteresis)
           {
@@ -897,7 +922,100 @@ int main(void)
             SetHeaterState(MAX_TRIAC_DUTY);
             HeaterOn();
           }
+					
+					bHybridCtrlState = HYBRID_STATE_IDLE; // TODO: move it to Modbus write callback
         }
+        else
+				{
+					if (bHybridCtrlState == HYBRID_STATE_IDLE)
+					{
+						// reset all stuff
+            iHybridCtrlPulseCount = 0;
+            iHybridCtrlOnCounter = 0;
+            iHybridCtrlOffCounter = 0;
+						bHybridCtrlState = HYBRID_STATE_ONOFF;
+						SetHeaterState(0);
+					}
+					else
+					if (bHybridCtrlState == HYBRID_STATE_ONOFF)
+					{
+						// on-off stage
+
+						// calculating of on and off durations
+						if (bHybridCtrlHeaterOn)
+							iHybridCtrlOnCounter++;
+						else
+							iHybridCtrlOffCounter++;
+						
+						if (fE < -fTemprHysteresis)
+						{
+							SetHeaterState(0);
+							HeaterOff();
+							
+							if (bHybridCtrlHeaterOn)
+							{
+								// incrementing on-off cycle count
+								iHybridCtrlPulseCount++;
+								if (iHybridCtrlPulseCount == HYBRID_CTRL_PULSE_COUNT) // this is the last cycle
+								{
+									if (iHybridCtrlOnCounter + iHybridCtrlOffCounter == 0)
+										fRes = 0.5; // this is only to prevent division by 0
+									else
+									  fRes = (float)(iHybridCtrlOnCounter) / (float)(iHybridCtrlOnCounter + iHybridCtrlOffCounter); // duty cycle
+									// (u_max*fRes) == PI controller output (+ some nonlinear correction) == K_i*fInt 
+									
+									// nonlinear compensation based on 
+									// "An Accurate Formula For The Firing Angle Of The Phase Angle Control In Terms Of The Duty Cycle Of The Integral Cycle Control"
+									// http://jase.esrgroups.org/papers/6_1_4_12.pdf
+									fRes = 1 - ((-4.499*fRes*fRes*fRes + 6.79*fRes*fRes - 4.68*fRes + 2.77))/3.1415926;
+									
+									if (fabs(K_i) > 0.001)
+										fInt = (u_max*fRes) / K_i;
+									else
+										fInt = 0;
+									
+									bHybridCtrlState = HYBRID_STATE_PI;
+								}
+								
+								iHybridCtrlOnCounter = 0;
+								iHybridCtrlOffCounter = 0;
+							}
+							
+							bHybridCtrlHeaterOn = 0;
+						}
+						else
+						if (fE > fTemprHysteresis)
+						{
+							SetHeaterState(MAX_TRIAC_DUTY);
+							HeaterOn();
+							
+							bHybridCtrlHeaterOn = 1;
+						}
+					}
+					else
+					if (bHybridCtrlState == HYBRID_STATE_PI)
+					{
+						// PI controller action
+						fRes = PI_Controller(fE); 
+						
+						SetHeaterState(fRes*10); // setting iTriacDuty variable
+						if (iTriacDuty > 1)
+							TimerTriac_Load(iTriacDuty);
+						else
+							HeaterOff();
+						
+						// we out of the boundaries -- go to initial state
+						if (fE < -fTemprHysteresis) bHybridCtrlState = HYBRID_STATE_IDLE;
+						if (fE > fTemprHysteresis) bHybridCtrlState = HYBRID_STATE_IDLE;
+					}
+					
+					
+					
+					if (iTriacDuty > 1)
+            TimerTriac_Load(iTriacDuty);
+          else
+            HeaterOff();
+				}
       }
       
       // heater fault check
@@ -1245,10 +1363,11 @@ void MX_GPIO_Init(void)
   */
 static void Error_Handler(void)
 {
-  while(1)
+  //while(1)
   {
     /* Toggle LED2 */
-    HAL_GPIO_TogglePin(GPIOA, LEDR_Pin);
+    //HAL_GPIO_TogglePin(GPIOA, LEDR_Pin);
+		HAL_GPIO_WritePin(GPIOA, LEDR_Pin, GPIO_PIN_SET);
     HAL_Delay(50);
   }
 }
@@ -1336,7 +1455,7 @@ void ProgramFlash()
   if (HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, iMemRWAddr, iCH1_Mapping) != HAL_OK) { HAL_GPIO_WritePin(LEDR_GPIO_Port, LEDR_Pin, GPIO_PIN_SET);  return; } iMemRWAddr+=4;
   if (HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, iMemRWAddr, iCH2_Mapping) != HAL_OK) { HAL_GPIO_WritePin(LEDR_GPIO_Port, LEDR_Pin, GPIO_PIN_SET);  return; } iMemRWAddr+=4;
   
-  if (HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, iMemRWAddr, iHeaterCtrlEnPI) != HAL_OK) { HAL_GPIO_WritePin(LEDR_GPIO_Port, LEDR_Pin, GPIO_PIN_SET);  return; } iMemRWAddr+=4;
+  if (HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, iMemRWAddr, iHeaterCtrlType) != HAL_OK) { HAL_GPIO_WritePin(LEDR_GPIO_Port, LEDR_Pin, GPIO_PIN_SET);  return; } iMemRWAddr+=4;
   if (HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, iMemRWAddr, iHeaterCtrlInterval) != HAL_OK) { HAL_GPIO_WritePin(LEDR_GPIO_Port, LEDR_Pin, GPIO_PIN_SET);  return; } iMemRWAddr+=4;
   if (HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, iMemRWAddr, *((uint32_t*)(&fTemprHysteresis))) != HAL_OK) { HAL_GPIO_WritePin(LEDR_GPIO_Port, LEDR_Pin, GPIO_PIN_SET);  return; } iMemRWAddr+=4;
   if (HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, iMemRWAddr, *((uint32_t*)(&fK_p))) != HAL_OK) { HAL_GPIO_WritePin(LEDR_GPIO_Port, LEDR_Pin, GPIO_PIN_SET);  return; } iMemRWAddr+=4;
@@ -1373,7 +1492,7 @@ void ReadFlash()
   iCH1_Mapping = *((uint32_t*)(iMemRWAddr)); iMemRWAddr+=4;
   iCH2_Mapping = *((uint32_t*)(iMemRWAddr)); iMemRWAddr+=4;
   
-  iHeaterCtrlEnPI = *((uint32_t*)(iMemRWAddr)); iMemRWAddr+=4;
+  iHeaterCtrlType = *((uint32_t*)(iMemRWAddr)); iMemRWAddr+=4;
   iHeaterCtrlInterval = *((uint32_t*)(iMemRWAddr)); iMemRWAddr+=4;
   fTemprHysteresis = *((float*)(iMemRWAddr)); iMemRWAddr+=4;
   fK_p = *((float*)(iMemRWAddr)); iMemRWAddr+=4;

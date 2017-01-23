@@ -3,8 +3,7 @@
 #ifndef InterfaceH
 #define InterfaceH
 
-//#include <windows.h>
-
+#include <fmx.h>
 //---------------------------------------------------------------------------
 #define PORT_BUFFER_COUNT 16384
 

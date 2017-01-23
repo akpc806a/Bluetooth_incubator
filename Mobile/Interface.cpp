@@ -104,13 +104,20 @@ int HAL_OutData(unsigned char *Data, int Count)
   }
 //ToSend.Length = 1;
 //ToSend[0] = 'v';
-  if (FSocket != NULL && FSocket->Connected)
-  {
-     FSocket->SendData(ToSend); 
-     return HAL_ERROR_OK;
-  }
-  else
-     return HAL_ERROR_INIT;
+    if (FSocket != NULL && FSocket->Connected)
+    {
+        try
+        {
+            FSocket->SendData(ToSend);
+        }
+        catch (Exception &ex)
+        {
+            return HAL_ERROR_IO;
+        }
+        return HAL_ERROR_OK;
+    }
+    else
+        return HAL_ERROR_INIT;
 /*
 	
 	ToSend.Length = 1;
@@ -148,7 +155,15 @@ int HAL_InData(unsigned char *Data, int Count)
                 return HAL_ERROR_TIMEOUT;
             }
 
-            RxBuffer = FSocket->ReadData();
+            try
+            {
+                RxBuffer = FSocket->ReadData();
+            }
+            catch (Exception &ex)
+            {
+                return HAL_ERROR_IO;
+            }
+
             for (int j = 0; j < RxBuffer.Length; j++)
             {
                 if (iByte < Count)

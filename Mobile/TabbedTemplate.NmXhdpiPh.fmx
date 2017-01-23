@@ -44,6 +44,7 @@ inherited TabbedForm_NmXhdpiPh: TTabbedForm_NmXhdpiPh
         TabOrder = 12
       end
       inherited TrackBar_HeaterPower: TTrackBar
+        TabOrder = 15
         Value = 100.000000000000000000
       end
     end
@@ -51,19 +52,31 @@ inherited TabbedForm_NmXhdpiPh: TTabbedForm_NmXhdpiPh
       Size.Width = 57.000000000000000000
       ExplicitSize.cx = 64.000000000000000000
       ExplicitSize.cy = 49.000000000000000000
+      inherited Edt_TempCtrlSetpoint: TEdit
+        TabOrder = 8
+      end
+      inherited ComboBox_TempCtrlType: TComboBox
+        TabOrder = 23
+      end
+      inherited Edt_TempCtrlInterval: TEdit
+        TabOrder = 7
+      end
+      inherited Edt_Kp: TEdit
+        TabOrder = 4
+      end
     end
     inherited TabItem_HumCtrl: TTabItem
       Size.Width = 57.000000000000000000
       ExplicitSize.cx = 64.000000000000000000
       ExplicitSize.cy = 49.000000000000000000
+      inherited Edt_Hum_UpperValue: TEdit
+        TabOrder = 4
+      end
     end
     inherited TabItem_Timer: TTabItem
       Size.Width = 57.000000000000000000
       ExplicitSize.cx = 64.000000000000000000
       ExplicitSize.cy = 49.000000000000000000
-      inherited Edt_Timer_OffInterval: TEdit
-        TabOrder = 3
-      end
     end
     inherited TabItem_Protect: TTabItem
       Size.Width = 58.000000000000000000

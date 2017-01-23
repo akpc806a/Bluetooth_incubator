@@ -18,7 +18,7 @@ object TabbedForm: TTabbedForm
     Size.Height = 567.000000000000000000
     Size.PlatformDefault = False
     TabHeight = 49.000000000000000000
-    TabIndex = 5
+    TabIndex = 2
     TabOrder = 0
     TabPosition = PlatformDefault
     OnChange = TabControlChange
@@ -145,7 +145,7 @@ object TabbedForm: TTabbedForm
       CustomIcon = <
         item
         end>
-      IsSelected = False
+      IsSelected = True
       Size.Width = 54.000000000000000000
       Size.Height = 49.000000000000000000
       Size.PlatformDefault = False
@@ -189,7 +189,7 @@ object TabbedForm: TTabbedForm
         Size.Width = 121.000000000000000000
         Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 15
+        TabOrder = 18
         OnChange = ComboBox_Output1Change
       end
       object ComboBox_Output2: TComboBox
@@ -202,7 +202,7 @@ object TabbedForm: TTabbedForm
         Size.Width = 121.000000000000000000
         Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 14
+        TabOrder = 17
         OnChange = ComboBox_Output2Change
       end
       object ComboBox_Output3: TComboBox
@@ -215,7 +215,7 @@ object TabbedForm: TTabbedForm
         Size.Width = 121.000000000000000000
         Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 13
+        TabOrder = 16
         OnChange = ComboBox_Output3Change
       end
       object ChBx_ManualCtrlEn: TCheckBox
@@ -230,13 +230,14 @@ object TabbedForm: TTabbedForm
       end
       object TrackBar_HeaterPower: TTrackBar
         CanParentFocus = True
+        Frequency = 5.000000000000000000
         Orientation = Horizontal
         Position.X = 88.000000000000000000
         Position.Y = 216.000000000000000000
         Size.Width = 209.000000000000000000
         Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 10
+        TabOrder = 12
         OnChange = TrackBar_HeaterPowerChange
       end
       object Label6: TLabel
@@ -292,7 +293,7 @@ object TabbedForm: TTabbedForm
       end
       object Edt_TempCtrlSetpoint: TEdit
         Touch.InteractiveGestures = [LongTap, DoubleTap]
-        TabOrder = 4
+        TabOrder = 6
         Position.X = 152.000000000000000000
         Position.Y = 8.000000000000000000
         Size.Width = 100.000000000000000000
@@ -311,7 +312,7 @@ object TabbedForm: TTabbedForm
       object ComboBox_TempCtrlType: TComboBox
         Position.X = 152.000000000000000000
         Position.Y = 47.000000000000000000
-        TabOrder = 19
+        TabOrder = 21
         OnChange = ComboBox_TempCtrlTypeChange
         object ListBoxItem1: TListBoxItem
           TabOrder = 0
@@ -328,7 +329,7 @@ object TabbedForm: TTabbedForm
       end
       object Edt_TempCtrlInterval: TEdit
         Touch.InteractiveGestures = [LongTap, DoubleTap]
-        TabOrder = 3
+        TabOrder = 5
         Position.X = 152.000000000000000000
         Position.Y = 88.000000000000000000
         Size.Width = 100.000000000000000000
@@ -372,7 +373,7 @@ object TabbedForm: TTabbedForm
       end
       object Edt_Kp: TEdit
         Touch.InteractiveGestures = [LongTap, DoubleTap]
-        TabOrder = 2
+        TabOrder = 3
         Position.X = 144.000000000000000000
         Position.Y = 200.000000000000000000
         Size.Width = 100.000000000000000000
@@ -423,7 +424,7 @@ object TabbedForm: TTabbedForm
       end
       object Edt_Hum_UpperValue: TEdit
         Touch.InteractiveGestures = [LongTap, DoubleTap]
-        TabOrder = 1
+        TabOrder = 2
         Position.X = 160.000000000000000000
         Position.Y = 16.000000000000000000
         Size.Width = 100.000000000000000000
@@ -482,7 +483,7 @@ object TabbedForm: TTabbedForm
       CustomIcon = <
         item
         end>
-      IsSelected = True
+      IsSelected = False
       Size.Width = 54.000000000000000000
       Size.Height = 49.000000000000000000
       Size.PlatformDefault = False
@@ -502,7 +503,7 @@ object TabbedForm: TTabbedForm
       end
       object Edt_Timer_OffInterval: TEdit
         Touch.InteractiveGestures = [LongTap, DoubleTap]
-        TabOrder = 2
+        TabOrder = 3
         Text = '01'
         Position.X = 192.000000000000000000
         Position.Y = 24.000000000000000000
@@ -542,6 +543,8 @@ object TabbedForm: TTabbedForm
       TabOrder = 0
       Text = 'Protect'
       OnClick = TabItem_ProtectClick
+      ExplicitSize.cx = 60.000000000000000000
+      ExplicitSize.cy = 49.000000000000000000
       object Edt_OTP_Value: TEdit
         Touch.InteractiveGestures = [LongTap, DoubleTap]
         TabOrder = 9
