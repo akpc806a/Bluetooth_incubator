@@ -56,13 +56,16 @@ inherited TabbedForm_NmXhdpiPh: TTabbedForm_NmXhdpiPh
         TabOrder = 8
       end
       inherited ComboBox_TempCtrlType: TComboBox
-        TabOrder = 23
+        TabOrder = 21
       end
       inherited Edt_TempCtrlInterval: TEdit
-        TabOrder = 7
+        TabOrder = 6
       end
       inherited Edt_Kp: TEdit
-        TabOrder = 4
+        TabOrder = 7
+      end
+      inherited Btn_Tune: TButton
+        TabOrder = 26
       end
     end
     inherited TabItem_HumCtrl: TTabItem
@@ -70,7 +73,10 @@ inherited TabbedForm_NmXhdpiPh: TTabbedForm_NmXhdpiPh
       ExplicitSize.cx = 64.000000000000000000
       ExplicitSize.cy = 49.000000000000000000
       inherited Edt_Hum_UpperValue: TEdit
-        TabOrder = 4
+        TabOrder = 6
+      end
+      inherited ChBx_InvertHumOutput: TCheckBox
+        TabOrder = 5
       end
     end
     inherited TabItem_Timer: TTabItem

@@ -13,6 +13,7 @@
 #pragma package(smart_init)
 #pragma resource "*.fmx"
 #pragma resource ("*.NmXhdpiPh.fmx", _PLAT_ANDROID)
+#pragma resource ("*.SmXhdpiPh.fmx", _PLAT_ANDROID)
 
 TTabbedForm *TabbedForm;
 
@@ -58,29 +59,30 @@ TTabbedForm *TabbedForm;
 //---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
 __fastcall TTabbedForm::TTabbedForm(TComponent* Owner)
-	: TForm(Owner)
+  : TForm(Owner)
 {
-  FConnected = 0;
+    FConnected = 0;
+    FTunning = 0;
 }
 //---------------------------------------------------------------------------
 
 //---------------------------------------------------------------------------
 void __fastcall TTabbedForm::FormCreate(TObject *Sender)
 {
-	// This defines the default active tab at runtime
-	TabControl->ActiveTab = TabItem_Connect;
-	//PairedDevices();
+  // This defines the default active tab at runtime
+  TabControl->ActiveTab = TabItem_Connect;
+  //PairedDevices();
 }
 //---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
 
 void __fastcall TTabbedForm::FormShow(TObject *Sender)
 {
-	if (HAL_Init() == HAL_ERROR_OK)
+    if (HAL_Init() == HAL_ERROR_OK)
     {
-    	TStringList* device_list = new TStringList();
-    	HAL_GetDeviceList(device_list);
-        ComboBoxPaired->Items->Assign(device_list);
+      TStringList* device_list = new TStringList();
+      HAL_GetDeviceList(device_list);
+      ComboBoxPaired->Items->Assign(device_list);
     }
 }
 //---------------------------------------------------------------------------
@@ -99,47 +101,6 @@ void SecondsToStr(int num_seconds, char* str)
 
 }
 //---------------------------------------------------------------------------
-void __fastcall TTabbedForm::Button1Click(TObject *Sender)
-{
-  TimerTimer(Sender);
-/*
-	TBytes ToSend;
-	ToSend.Length = 1;
-    ToSend[0] = 'v';
-	if((FSocket == NULL) || (FDeviceItemIndex != ComboBoxPaired->ItemIndex)) {
-		if(ComboBoxPaired->ItemIndex > -1) {
-			TBluetoothDevice * LDevice = FPairedDevices->Items[ComboBoxPaired->ItemIndex];
-			//DisplayR->Lines->Add(GetServiceName(ServiceGUI));
-			//DisplayR->GoToTextEnd();
-			FSocket = LDevice->CreateClientSocket(StringToGUID(ServiceGUI), false);
-			if(FSocket != NULL) {
-				FDeviceItemIndex = ComboBoxPaired->ItemIndex;
-				FSocket->Connect();
-				//ToSend = TEncoding::UTF8->GetBytes(Edit1->Text);
-				FSocket->SendData(ToSend);
-				//DisplayR->Lines->Add("Text Sent");
-				//DisplayR->GoToTextEnd();
-			}
-			else {
-				ShowMessage("Out of time ~15s~");
-			}
-		}
-		else {
-			ShowMessage("No paired device selected");
-		}
-	}
-	else {
-		//ToSend = TEncoding::UTF8->GetBytes(Edit1->Text);
-		FSocket->SendData(ToSend);
-		//DisplayR->Lines->Add("Text Sent");
-		//DisplayR->GoToTextEnd();
-	}
-*/
-}
-//---------------------------------------------------------------------------
-
-
-
 void __fastcall TTabbedForm::ComboBoxPairedChange(TObject *Sender)
 {
   if (HAL_Connect(ComboBoxPaired->ItemIndex) == HAL_ERROR_OK)
@@ -156,6 +117,8 @@ void __fastcall TTabbedForm::TimerTimer(TObject *Sender)
   short int iData[4];
   int iRes = 0;
 
+  if (!FConnected) return;
+
   iRes = ModBus_ReadRegs(MODBUS_ID, MODBUS_ADDR_TEMPERATURE, 4, iData);
   if (iRes != MODBUS_ERROR_OK)
   {
@@ -171,8 +134,17 @@ void __fastcall TTabbedForm::TimerTimer(TObject *Sender)
   }
   */
   // temperature
-  sprintf(sTmp, "%.2f", (iData[0] / 100.0));
+  float fTemperature = (iData[0] / 100.0);
+  sprintf(sTmp, "%.2f", fTemperature);
   Edt_TempC->Text = sTmp;
+
+  if (FTunning)
+  {
+    iTuningTimer++;
+    float fTime = iTuningTimer*0.5; // time in seconds (0.5 is TTimer period)
+    Tuning_AddPoint(fTime, fTemperature);
+  }
+
   // humidity
   sprintf(sTmp, "%.2f", (iData[1] / 100.0));
   Edt_Hum->Text = sTmp;
@@ -204,7 +176,7 @@ void __fastcall TTabbedForm::TabControlChange(TObject *Sender)
   else
   if (Timer->Enabled) 
   {
-	Timer->Enabled = 0;
+    Timer->Enabled = 0;
   }
 }
 //---------------------------------------------------------------------------
@@ -212,11 +184,13 @@ void TTabbedForm::UpdateManualControl()
 {
   short int iData;
 
+  if (!FConnected) return;
+
   if (ChBx_ManualCtrlEn->IsChecked)
   {
     iData = 0x800; // enable manual control
     iData |= int(TrackBar_HeaterPower->Value)*10; // heater control
-	if (ChBx_HumidityOn->IsChecked)
+    if (ChBx_HumidityOn->IsChecked)
       iData |= 0x1000;
     if (ChBx_TimerOn->IsChecked)
       iData |= 0x2000;
@@ -270,6 +244,8 @@ void __fastcall TTabbedForm::ChBx_TimerOnChange(TObject *Sender)
 
 void __fastcall TTabbedForm::ComboBox_Output1Change(TObject *Sender)
 {
+  if (!FConnected) return;
+
   int iData = ComboBox_Output1->ItemIndex;
 
   if (ModBus_WriteReg(MODBUS_ID, MODBUS_ADDR_CH0_MAPPING, iData) != MODBUS_ERROR_OK)
@@ -281,6 +257,8 @@ void __fastcall TTabbedForm::ComboBox_Output1Change(TObject *Sender)
 
 void __fastcall TTabbedForm::ComboBox_Output2Change(TObject *Sender)
 {
+  if (!FConnected) return;
+
   int iData = ComboBox_Output2->ItemIndex;
 
   if (ModBus_WriteReg(MODBUS_ID, MODBUS_ADDR_CH1_MAPPING, iData) != MODBUS_ERROR_OK)
@@ -292,6 +270,8 @@ void __fastcall TTabbedForm::ComboBox_Output2Change(TObject *Sender)
 
 void __fastcall TTabbedForm::ComboBox_Output3Change(TObject *Sender)
 {
+  if (!FConnected) return;
+
   int iData = ComboBox_Output3->ItemIndex;
 
   if (ModBus_WriteReg(MODBUS_ID, MODBUS_ADDR_CH2_MAPPING, iData) != MODBUS_ERROR_OK)
@@ -303,6 +283,8 @@ void __fastcall TTabbedForm::ComboBox_Output3Change(TObject *Sender)
 
 void __fastcall TTabbedForm::Edt_TempCtrlIntervalChange(TObject *Sender)
 {
+  if (!FConnected) return;
+
   double fData;
   try
   {
@@ -322,6 +304,8 @@ void __fastcall TTabbedForm::Edt_TempCtrlIntervalChange(TObject *Sender)
 
 void __fastcall TTabbedForm::ComboBox_TempCtrlTypeChange(TObject *Sender)
 {
+  if (!FConnected) return;
+
   int iData = ComboBox_TempCtrlType->ItemIndex;
 
   if (ModBus_WriteReg(MODBUS_ID, MODBUS_ADDR_TEMP_CTRL_TYPE, iData) != MODBUS_ERROR_OK)
@@ -333,6 +317,8 @@ void __fastcall TTabbedForm::ComboBox_TempCtrlTypeChange(TObject *Sender)
 
 void __fastcall TTabbedForm::Edt_TempCtrlSetpointChange(TObject *Sender)
 {
+  if (!FConnected) return;
+
   double fData;
   try
   {
@@ -352,10 +338,12 @@ void __fastcall TTabbedForm::Edt_TempCtrlSetpointChange(TObject *Sender)
 
 void __fastcall TTabbedForm::Edt_TempOnOff_HysteresisChange(TObject *Sender)
 {
+  if (!FConnected) return;
+
   double fData;
   try
   {
-	fData = Edt_TempOnOff_Hysteresis->Text.ToDouble();
+  fData = Edt_TempOnOff_Hysteresis->Text.ToDouble();
   }
   catch(EConvertError *err)
   {
@@ -371,6 +359,8 @@ void __fastcall TTabbedForm::Edt_TempOnOff_HysteresisChange(TObject *Sender)
 
 void __fastcall TTabbedForm::Edt_KpChange(TObject *Sender)
 {
+  if (!FConnected) return;
+
   double fData;
   try
   {
@@ -390,6 +380,8 @@ void __fastcall TTabbedForm::Edt_KpChange(TObject *Sender)
 
 void __fastcall TTabbedForm::Edt_KiChange(TObject *Sender)
 {
+  if (!FConnected) return;
+
   double fData;
   try
   {
@@ -409,6 +401,8 @@ void __fastcall TTabbedForm::Edt_KiChange(TObject *Sender)
 
 void __fastcall TTabbedForm::Edt_Hum_UpperValueChange(TObject *Sender)
 {
+  if (!FConnected) return;
+
   double fData;
   try
   {
@@ -428,6 +422,8 @@ void __fastcall TTabbedForm::Edt_Hum_UpperValueChange(TObject *Sender)
 
 void __fastcall TTabbedForm::Edt_Hum_LowerValueChange(TObject *Sender)
 {
+  if (!FConnected) return;
+
   double fData;
   try
   {
@@ -447,6 +443,8 @@ void __fastcall TTabbedForm::Edt_Hum_LowerValueChange(TObject *Sender)
 
 void __fastcall TTabbedForm::Edt_Hum_PeriodChange(TObject *Sender)
 {
+  if (!FConnected) return;
+
   double fData;
   try
   {
@@ -466,6 +464,8 @@ void __fastcall TTabbedForm::Edt_Hum_PeriodChange(TObject *Sender)
 
 void __fastcall TTabbedForm::ChBx_InvertHumOutputChange(TObject *Sender)
 {
+  if (!FConnected) return;
+
   int iData = ChBx_InvertHumOutput->IsChecked;
 
   if (ModBus_WriteReg(MODBUS_ID, MODBUS_ADDR_HUM_CTRL_INVERTOUT, iData) != MODBUS_ERROR_OK)
@@ -477,6 +477,8 @@ void __fastcall TTabbedForm::ChBx_InvertHumOutputChange(TObject *Sender)
 
 void __fastcall TTabbedForm::Edt_Timer_OffIntervalChange(TObject *Sender)
 {
+  if (!FConnected) return;
+
   int iOff;
   try
   {
@@ -510,6 +512,8 @@ void __fastcall TTabbedForm::Edt_Timer_OffIntervalChange(TObject *Sender)
 
 void __fastcall TTabbedForm::Edt_Timer_OnIntervalChange(TObject *Sender)
 {
+  if (!FConnected) return;
+
   int iOn;
   try
   {
@@ -522,7 +526,7 @@ void __fastcall TTabbedForm::Edt_Timer_OnIntervalChange(TObject *Sender)
 
   if (ModBus_WriteReg(MODBUS_ID, MODBUS_ADDR_TIMER_ON, iOn) != MODBUS_ERROR_OK)
   {
-	Caption = "BAD";
+  Caption = "BAD";
   }
 }
 //---------------------------------------------------------------------------
@@ -543,7 +547,7 @@ void __fastcall TTabbedForm::TabItem_TimerClick(TObject *Sender)
   int iOff = iData[1];
 
   if (iOff >= 60)
-	sTmp = sTmp.sprintf("%02d:%02d", iOff/60, iOff % 60);
+  sTmp = sTmp.sprintf("%02d:%02d", iOff/60, iOff % 60);
   else
     sTmp = sTmp.sprintf("%02d", iOff);
 
@@ -609,14 +613,14 @@ void __fastcall TTabbedForm::TabItem_OutputClick(TObject *Sender)
   // output state
   if (iData[0] & 0x800)
   {
-	ChBx_ManualCtrlEn->IsChecked = 1;
+    ChBx_ManualCtrlEn->IsChecked = 1;
     // manual control enabled
     if (iData[0] & 0x2000)
-	  ChBx_HumidityOn->IsChecked = 1;
+    ChBx_HumidityOn->IsChecked = 1;
     else
-	  ChBx_HumidityOn->IsChecked = 0;
+    ChBx_HumidityOn->IsChecked = 0;
     if (iData[0] & 0x1000)
-	  ChBx_TimerOn->IsChecked = 1;
+    ChBx_TimerOn->IsChecked = 1;
     else
       ChBx_TimerOn->IsChecked = 0;
 
@@ -624,8 +628,8 @@ void __fastcall TTabbedForm::TabItem_OutputClick(TObject *Sender)
   }
   else
   {
-	ChBx_ManualCtrlEn->IsChecked = 0;
-	ChBx_HumidityOn->IsChecked = 0;
+    ChBx_ManualCtrlEn->IsChecked = 0;
+    ChBx_HumidityOn->IsChecked = 0;
     ChBx_TimerOn->IsChecked = 0;
   }
 
@@ -660,6 +664,8 @@ void __fastcall TTabbedForm::TabItem_ProtectClick(TObject *Sender)
 
 void __fastcall TTabbedForm::Edt_UHP_TimeChange(TObject *Sender)
 {
+  if (!FConnected) return;
+
   int iValue;
   try
   {
@@ -679,6 +685,8 @@ void __fastcall TTabbedForm::Edt_UHP_TimeChange(TObject *Sender)
 
 void __fastcall TTabbedForm::Edt_OHP_TimeChange(TObject *Sender)
 {
+  if (!FConnected) return;
+
   int iValue;
   try
   {
@@ -698,6 +706,8 @@ void __fastcall TTabbedForm::Edt_OHP_TimeChange(TObject *Sender)
 
 void __fastcall TTabbedForm::Edt_UHP_ValueChange(TObject *Sender)
 {
+  if (!FConnected) return;
+
   double fData;
   try
   {
@@ -717,6 +727,8 @@ void __fastcall TTabbedForm::Edt_UHP_ValueChange(TObject *Sender)
 
 void __fastcall TTabbedForm::Edt_OHP_ValueChange(TObject *Sender)
 {
+  if (!FConnected) return;
+
   double fData;
   try
   {
@@ -736,6 +748,8 @@ void __fastcall TTabbedForm::Edt_OHP_ValueChange(TObject *Sender)
 
 void __fastcall TTabbedForm::Edt_UTP_TimeChange(TObject *Sender)
 {
+  if (!FConnected) return;
+
   int iValue;
   try
   {
@@ -755,6 +769,8 @@ void __fastcall TTabbedForm::Edt_UTP_TimeChange(TObject *Sender)
 
 void __fastcall TTabbedForm::Edt_UTP_ValueChange(TObject *Sender)
 {
+  if (!FConnected) return;
+
   double fData;
   try
   {
@@ -774,6 +790,8 @@ void __fastcall TTabbedForm::Edt_UTP_ValueChange(TObject *Sender)
 
 void __fastcall TTabbedForm::Edt_OTP_TimeChange(TObject *Sender)
 {
+  if (!FConnected) return;
+
   int iValue;
   try
   {
@@ -793,6 +811,8 @@ void __fastcall TTabbedForm::Edt_OTP_TimeChange(TObject *Sender)
 
 void __fastcall TTabbedForm::Edt_OTP_ValueChange(TObject *Sender)
 {
+  if (!FConnected) return;
+
   double fData;
   try
   {
@@ -812,6 +832,8 @@ void __fastcall TTabbedForm::Edt_OTP_ValueChange(TObject *Sender)
 
 void __fastcall TTabbedForm::FormClose(TObject *Sender, TCloseAction &Action)
 {
+  if (!FConnected) return;
+
   short int iData;
   // writing enything for initiation of flash programming
   if (ModBus_WriteReg(MODBUS_ID, MODBUS_ADDR_PROGRAM, iData) != MODBUS_ERROR_OK)
@@ -819,6 +841,182 @@ void __fastcall TTabbedForm::FormClose(TObject *Sender, TCloseAction &Action)
     Caption = "BAD";
   }
   Sleep(100);
+}
+//---------------------------------------------------------------------------
+// start auto-tuning, InitialValue -- process output in idle steady-state
+void TTabbedForm::Tuning_Start(float InitialValue)
+{
+  iPointCount = 0;
+  fY_0 = InitialValue;
+
+  fY_start = ceil(InitialValue/TUNE_TEMP_DELTA)*TUNE_TEMP_DELTA;
+}
+
+// add new measurement to recorded response
+void TTabbedForm::Tuning_AddPoint(float Time, float Value)
+{
+  if (iPointCount >= TUNE_POINT_COUNT) return;
+
+  if (Value >= (fY_start + TUNE_TEMP_DELTA*iPointCount))
+  {
+    fPoints_T[iPointCount] = Time;
+    fPoints_Y[iPointCount] = Value;
+    iPointCount++;
+  }
+}
+
+// error codes for auto-tuning
+#define TUNING_RESULT_OK 0
+#define TUNING_RESULT_NOT_ENOUGH_DATA 1
+#define TUNING_RESULT_WRONG_SHAPE 2
+#define TUNING_RESULT_REGR_FAULT 3
+// finilize auto-tuning and calculate coefficients, EndValue -- steady state value
+// returns error code described above
+unsigned char TTabbedForm::Tuning_Finilize(float EndValue)
+{
+  int i;
+  float fMean_T = 0;
+  float fMean_Y = 0;
+  double fNum = 0;
+  double fDen = 0;
+  double fB;
+
+  fY_ss = EndValue;
+
+  // shape response to match steady state value
+  i = iPointCount-1;
+  while (i >= 0)
+  {
+    if (fPoints_Y[i] >= fY_ss)
+      iPointCount--;
+    else
+      break;
+
+    i--;
+  }
+
+  if (iPointCount < 2) return TUNING_RESULT_NOT_ENOUGH_DATA;
+
+  // calculate logarithms -- should be a line in result
+  for (i = 0; i < iPointCount; i++)
+  {
+    if (fY_ss <= fPoints_Y[i]) return TUNING_RESULT_WRONG_SHAPE;
+    if (fY_ss <= fY_0) return TUNING_RESULT_WRONG_SHAPE;
+
+    fPoints_Y[i] = -log((fY_ss - fPoints_Y[i])/(fY_ss - fY_0));
+  }
+
+  // linear regression for slope calculation
+
+  for (i = 0; i < iPointCount; i++)
+    fMean_T = fMean_T + fPoints_T[i];
+  fMean_T = fMean_T / iPointCount;
+
+  for (i = 0; i < iPointCount; i++)
+    fMean_Y = fMean_Y + fPoints_Y[i];
+  fMean_Y = fMean_Y / iPointCount;
+
+  for (i = 0; i < iPointCount; i++)
+  {
+    fNum = fNum + (fPoints_T[i] - fMean_T)*(fPoints_Y[i] - fMean_Y);
+    fDen = fDen + (fPoints_T[i] - fMean_T)*(fPoints_T[i] - fMean_T);
+  }
+  if (fDen == 0) return TUNING_RESULT_REGR_FAULT;
+  fB = fNum / fDen;
+
+  // first order system parameters
+  fTau = 1/fB;
+  fK = (fY_ss - fY_0)/TUNE_INPUT_VALUE;
+
+  // PI controller parameters
+  fK_i = w_0_cl_factor*w_0_cl_factor*fB/fK;
+  fK_p = (2*zeta_cl*w_0_cl_factor - 1) / fK;
+
+  return TUNING_RESULT_OK;
+}
+
+// function calculates maximal relative error between actual data and first-order approximation
+float TTabbedForm::Tuning_CalculateMaxError()
+{
+  float fRange = fY_ss - fY_0;
+  float fError = 0;
+  int i;
+  float fModelY; // output of model for given input
+
+  // convert back to temperature values
+  for (i = 0; i < iPointCount; i++)
+    fPoints_Y[i] = fY_ss - exp(-fPoints_Y[i])*(fY_ss - fY_0);
+
+  for (i = 0; i < iPointCount; i++)
+  {
+    fModelY = fY_0 + fK*TUNE_INPUT_VALUE*(1 - exp(-fPoints_T[i]/fTau));
+    if (fabs(fModelY - fPoints_Y[i]) > fError)
+      fError = fabs(fModelY - fPoints_Y[i]);
+  }
+
+  return (fError/fRange); // relative error
+}
+
+
+void __fastcall TTabbedForm::Btn_TuneClick(TObject *Sender)
+{
+  if (!FConnected) return;
+
+  if (!FTunning)
+  {
+    //ShowMessage("PI tuning will start");
+
+    FTunning = 1;
+    Label_Tuning->Visible = 1;
+    Btn_Tune->Text = "Stop";
+
+    // get temperature
+    TimerTimer(Sender);
+    float fTemperature = Edt_TempC->Text.ToDouble();
+
+    // enable heater
+    ChBx_ManualCtrlEn->IsChecked = 1;
+    TrackBar_HeaterPower->Value = 100;
+    UpdateManualControl();
+
+    Tuning_Start(fTemperature);
+
+    iTuningTimer = 0;
+
+    Timer->Enabled = 1;
+  }
+  else
+  {
+    //ShowMessage("Stop PI tuning");
+
+    FTunning = 0;
+    Label_Tuning->Visible = 0;
+    Btn_Tune->Text = "PI Tune";
+
+    // get temperature
+    float fTemperature = Edt_TempC->Text.ToDouble();
+    Tuning_Finilize(fTemperature);
+
+    // set calculated coefficients
+    if (ModBus_WriteReg(MODBUS_ID, MODBUS_ADDR_TEMP_CTRL_KP, round(fK_p*100)) != MODBUS_ERROR_OK)
+    {
+      Caption = "BAD";
+    }
+    Edt_Kp->Text = FloatToStr(round(fK_p*100)/100.0);
+
+
+    if (ModBus_WriteReg(MODBUS_ID, MODBUS_ADDR_TEMP_CTRL_KI, round(fK_i*1000)) != MODBUS_ERROR_OK)
+    {
+      Caption = "BAD";
+    }
+    Edt_Ki->Text = FloatToStr(round(fK_i*1000)/1000.0);
+
+    Timer->Enabled = 0;
+  }
+
+
+
+
 }
 //---------------------------------------------------------------------------
 

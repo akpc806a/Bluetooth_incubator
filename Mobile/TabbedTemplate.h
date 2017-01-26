@@ -13,7 +13,26 @@
 #include <FMX.ListBox.hpp>
 #include <FMX.Controls.Presentation.hpp>
 #include <FMX.Edit.hpp>
+#include <FMX.ImgList.hpp>
+#include <System.ImageList.hpp>
+//---------------------------------------------------------------------------
+// total point count for PI-controller auto-tuning
+#define TUNE_POINT_COUNT 40
+// difference between points
+#define TUNE_TEMP_DELTA 0.5
 
+// value of test step amplitude (100% of power as default)
+#define TUNE_INPUT_VALUE 100.0
+
+// error codes for auto-tuning
+#define TUNING_RESULT_OK 0
+#define TUNING_RESULT_NOT_ENOUGH_DATA 1
+#define TUNING_RESULT_WRONG_SHAPE 2
+#define TUNING_RESULT_REGR_FAULT 3
+
+// desired closed loop response parameters
+#define zeta_cl 1.0
+#define w_0_cl_factor 1.5 // w_0 = w_0_cl_factor/tau
 //---------------------------------------------------------------------------
 class TTabbedForm : public TForm
 {
@@ -89,9 +108,11 @@ __published:	// IDE-managed Components
 	TEdit *Edt_UHP_Value;
 	TEdit *Edt_UHP_Time;
 	TLabel *Label25;
+    TButton *Btn_Tune;
+    TLabel *Label_Tuning;
+    TImageList *ImageList;
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall FormShow(TObject *Sender);
-	void __fastcall Button1Click(TObject *Sender);
     void __fastcall ComboBoxPairedChange(TObject *Sender);
     void __fastcall TimerTimer(TObject *Sender);
     void __fastcall TabControlChange(TObject *Sender);
@@ -128,9 +149,41 @@ __published:	// IDE-managed Components
 	void __fastcall Edt_OTP_TimeChange(TObject *Sender);
 	void __fastcall Edt_OTP_ValueChange(TObject *Sender);
 	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
+  void __fastcall Btn_TuneClick(TObject *Sender);
 private:	// User declarations
-	bool FConnected;
-	void UpdateManualControl();
+    bool FConnected;
+    bool FTunning;
+
+    void UpdateManualControl();
+
+
+
+    // time marks for step response
+    float fPoints_T[TUNE_POINT_COUNT];
+    float fPoints_Y[TUNE_POINT_COUNT];
+
+    // actual point count from measurement
+    int iPointCount = 0;
+
+    float fY_start = 0; // first point of grid
+
+    float fY_ss = 0; // steady-state value
+    float fY_0 = 0; // initial value
+
+    // first order approximation results
+    double fTau = 0;
+    double fK = 0;
+
+    // calculated coefficients
+    float fK_p = 16.23729;
+    float fK_i = 0.019;
+
+    int iTuningTimer = 0;
+
+    void Tuning_Start(float InitialValue);
+    void Tuning_AddPoint(float Time, float Value);
+    unsigned char Tuning_Finilize(float EndValue);
+    float Tuning_CalculateMaxError();
 public:		// User declarations
 	__fastcall TTabbedForm(TComponent* Owner);
 };

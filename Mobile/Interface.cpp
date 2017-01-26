@@ -28,24 +28,24 @@ const String ServiceGUI = "{00001101-0000-1000-8000-00805F9B34FB}";
 
 int HAL_Init()
 {
-	try
+  try
     {
-		//LabelServer->Text = ServiceName;
-		//LabelClient->Text = "Client of " + ServiceName;
-		FBluetoothManager = TBluetoothManager::Current;
-		FAdapter = FBluetoothManager->CurrentAdapter;
-		if (FBluetoothManager->ConnectionState == TBluetoothConnectionState::Connected)
+    //LabelServer->Text = ServiceName;
+    //LabelClient->Text = "Client of " + ServiceName;
+    FBluetoothManager = TBluetoothManager::Current;
+    FAdapter = FBluetoothManager->CurrentAdapter;
+    if (FBluetoothManager->ConnectionState == TBluetoothConnectionState::Connected)
         {
-        	return HAL_ERROR_OK;
-			//PairedDevices();
-			//ComboBoxPaired->ItemIndex = 0;
-			//FDeviceItemIndex = -1;
-		}
-	} catch (Exception &ex)
+          return HAL_ERROR_OK;
+      //PairedDevices();
+      //ComboBoxPaired->ItemIndex = 0;
+      //FDeviceItemIndex = -1;
+    }
+  } catch (Exception &ex)
     {
-		ShowMessage(ex.Message);
+    ShowMessage(ex.Message);
         return HAL_ERROR_FATAL;
-	}
+  }
 
 /*
   DCB structDCB;
@@ -119,8 +119,8 @@ int HAL_OutData(unsigned char *Data, int Count)
     else
         return HAL_ERROR_INIT;
 /*
-	
-	ToSend.Length = 1;
+  
+  ToSend.Length = 1;
     ToSend[0] = 'v';
   
 */
@@ -198,14 +198,14 @@ int HAL_Close()
 
 void HAL_GetDeviceList(TStringList* device_list)
 {
-	device_list->Clear();
-	FPairedDevices = FBluetoothManager->GetPairedDevices();
-	if(FPairedDevices->Count > 0) {
-		for(int i = 0; i < FPairedDevices->Count; i++) {
-			device_list->Add(FPairedDevices->Items[i]->DeviceName +
+  device_list->Clear();
+  FPairedDevices = FBluetoothManager->GetPairedDevices();
+  if(FPairedDevices->Count > 0) {
+    for(int i = 0; i < FPairedDevices->Count; i++) {
+      device_list->Add(FPairedDevices->Items[i]->DeviceName +
             " : " + FPairedDevices->Items[i]->Address );
         }
-	}
+  }
 }
 
 int HAL_Connect(int dev_index)
