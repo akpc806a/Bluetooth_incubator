@@ -19,7 +19,7 @@ object TabbedForm: TTabbedForm
     Size.Height = 567.000000000000000000
     Size.PlatformDefault = False
     TabHeight = 49.000000000000000000
-    TabIndex = 0
+    TabIndex = 6
     TabOrder = 0
     TabPosition = PlatformDefault
     OnChange = TabControlChange
@@ -42,7 +42,7 @@ object TabbedForm: TTabbedForm
       CustomIcon = <
         item
         end>
-      IsSelected = True
+      IsSelected = False
       ImageIndex = 8
       Size.Width = 54.000000000000000000
       Size.Height = 49.000000000000000000
@@ -55,7 +55,7 @@ object TabbedForm: TTabbedForm
       object ComboBoxPaired: TComboBox
         Position.X = 12.000000000000000000
         Position.Y = 37.000000000000000000
-        Size.Width = 293.000000000000000000
+        Size.Width = 237.000000000000000000
         Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 4
@@ -81,7 +81,7 @@ object TabbedForm: TTabbedForm
         TabOrder = 0
         Position.X = 32.000000000000000000
         Position.Y = 40.000000000000000000
-        Size.Width = 100.000000000000000000
+        Size.Width = 65.000000000000000000
         Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
       end
@@ -90,7 +90,7 @@ object TabbedForm: TTabbedForm
         TabOrder = 1
         Position.X = 32.000000000000000000
         Position.Y = 96.000000000000000000
-        Size.Width = 100.000000000000000000
+        Size.Width = 65.000000000000000000
         Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
       end
@@ -99,7 +99,7 @@ object TabbedForm: TTabbedForm
         TabOrder = 2
         Position.X = 32.000000000000000000
         Position.Y = 152.000000000000000000
-        Size.Width = 100.000000000000000000
+        Size.Width = 65.000000000000000000
         Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
       end
@@ -128,7 +128,7 @@ object TabbedForm: TTabbedForm
         Text = 'Off'
       end
       object Label1: TLabel
-        Position.X = 144.000000000000000000
+        Position.X = 104.000000000000000000
         Position.Y = 48.000000000000000000
         Size.Width = 41.000000000000000000
         Size.Height = 23.000000000000000000
@@ -136,7 +136,7 @@ object TabbedForm: TTabbedForm
         Text = 'oC'
       end
       object Label2: TLabel
-        Position.X = 144.000000000000000000
+        Position.X = 104.000000000000000000
         Position.Y = 104.000000000000000000
         Size.Width = 41.000000000000000000
         Size.Height = 23.000000000000000000
@@ -301,7 +301,7 @@ object TabbedForm: TTabbedForm
         TabOrder = 10
         Position.X = 152.000000000000000000
         Position.Y = 8.000000000000000000
-        Size.Width = 100.000000000000000000
+        Size.Width = 89.000000000000000000
         Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
         OnChange = Edt_TempCtrlSetpointChange
@@ -317,6 +317,9 @@ object TabbedForm: TTabbedForm
       object ComboBox_TempCtrlType: TComboBox
         Position.X = 152.000000000000000000
         Position.Y = 47.000000000000000000
+        Size.Width = 89.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
         TabOrder = 25
         OnChange = ComboBox_TempCtrlTypeChange
         object ListBoxItem1: TListBoxItem
@@ -337,7 +340,7 @@ object TabbedForm: TTabbedForm
         TabOrder = 9
         Position.X = 152.000000000000000000
         Position.Y = 88.000000000000000000
-        Size.Width = 100.000000000000000000
+        Size.Width = 89.000000000000000000
         Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
         OnChange = Edt_TempCtrlIntervalChange
@@ -363,7 +366,7 @@ object TabbedForm: TTabbedForm
         TabOrder = 0
         Position.X = 200.000000000000000000
         Position.Y = 144.000000000000000000
-        Size.Width = 100.000000000000000000
+        Size.Width = 41.000000000000000000
         Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
         OnChange = Edt_TempOnOff_HysteresisChange
@@ -381,7 +384,7 @@ object TabbedForm: TTabbedForm
         TabOrder = 5
         Position.X = 144.000000000000000000
         Position.Y = 200.000000000000000000
-        Size.Width = 100.000000000000000000
+        Size.Width = 97.000000000000000000
         Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
         OnChange = Edt_KpChange
@@ -391,7 +394,7 @@ object TabbedForm: TTabbedForm
         TabOrder = 1
         Position.X = 144.000000000000000000
         Position.Y = 240.000000000000000000
-        Size.Width = 100.000000000000000000
+        Size.Width = 97.000000000000000000
         Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
         OnChange = Edt_KiChange
@@ -452,7 +455,7 @@ object TabbedForm: TTabbedForm
         TabOrder = 5
         Position.X = 160.000000000000000000
         Position.Y = 16.000000000000000000
-        Size.Width = 100.000000000000000000
+        Size.Width = 65.000000000000000000
         Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
         OnChange = Edt_Hum_UpperValueChange
@@ -462,7 +465,7 @@ object TabbedForm: TTabbedForm
         TabOrder = 0
         Position.X = 160.000000000000000000
         Position.Y = 56.000000000000000000
-        Size.Width = 100.000000000000000000
+        Size.Width = 65.000000000000000000
         Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
         OnChange = Edt_Hum_LowerValueChange
@@ -480,7 +483,7 @@ object TabbedForm: TTabbedForm
         TabOrder = 3
         Position.X = 160.000000000000000000
         Position.Y = 96.000000000000000000
-        Size.Width = 100.000000000000000000
+        Size.Width = 65.000000000000000000
         Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
         OnChange = Edt_Hum_PeriodChange
@@ -533,7 +536,7 @@ object TabbedForm: TTabbedForm
         Text = '01'
         Position.X = 192.000000000000000000
         Position.Y = 24.000000000000000000
-        Size.Width = 100.000000000000000000
+        Size.Width = 57.000000000000000000
         Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
         OnChange = Edt_Timer_OffIntervalChange
@@ -541,7 +544,7 @@ object TabbedForm: TTabbedForm
       object Label17: TLabel
         Position.X = 8.000000000000000000
         Position.Y = 72.000000000000000000
-        Size.Width = 137.000000000000000000
+        Size.Width = 169.000000000000000000
         Size.Height = 23.000000000000000000
         Size.PlatformDefault = False
         Text = 'On interval (sec)'
@@ -551,7 +554,7 @@ object TabbedForm: TTabbedForm
         TabOrder = 0
         Position.X = 192.000000000000000000
         Position.Y = 64.000000000000000000
-        Size.Width = 100.000000000000000000
+        Size.Width = 57.000000000000000000
         Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
         OnChange = Edt_Timer_OnIntervalChange
@@ -561,7 +564,7 @@ object TabbedForm: TTabbedForm
       CustomIcon = <
         item
         end>
-      IsSelected = False
+      IsSelected = True
       ImageIndex = 3
       Size.Width = 60.000000000000000000
       Size.Height = 49.000000000000000000
@@ -575,9 +578,9 @@ object TabbedForm: TTabbedForm
       object Edt_OTP_Value: TEdit
         Touch.InteractiveGestures = [LongTap, DoubleTap]
         TabOrder = 9
-        Position.X = 216.000000000000000000
+        Position.X = 208.000000000000000000
         Position.Y = 8.000000000000000000
-        Size.Width = 84.000000000000000000
+        Size.Width = 41.000000000000000000
         Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
         OnChange = Edt_OTP_ValueChange
@@ -592,7 +595,7 @@ object TabbedForm: TTabbedForm
       end
       object Label19: TLabel
         Position.X = 88.000000000000000000
-        Position.Y = 40.000000000000000000
+        Position.Y = 48.000000000000000000
         Size.Width = 105.000000000000000000
         Size.Height = 23.000000000000000000
         Size.PlatformDefault = False
@@ -601,9 +604,9 @@ object TabbedForm: TTabbedForm
       object Edt_OTP_Time: TEdit
         Touch.InteractiveGestures = [LongTap, DoubleTap]
         TabOrder = 5
-        Position.X = 216.000000000000000000
+        Position.X = 208.000000000000000000
         Position.Y = 40.000000000000000000
-        Size.Width = 84.000000000000000000
+        Size.Width = 41.000000000000000000
         Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
         OnChange = Edt_OTP_TimeChange
@@ -611,16 +614,16 @@ object TabbedForm: TTabbedForm
       object Edt_UTP_Time: TEdit
         Touch.InteractiveGestures = [LongTap, DoubleTap]
         TabOrder = 2
-        Position.X = 216.000000000000000000
+        Position.X = 208.000000000000000000
         Position.Y = 112.000000000000000000
-        Size.Width = 84.000000000000000000
+        Size.Width = 41.000000000000000000
         Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
         OnChange = Edt_UTP_TimeChange
       end
       object Label20: TLabel
         Position.X = 88.000000000000000000
-        Position.Y = 112.000000000000000000
+        Position.Y = 120.000000000000000000
         Size.Width = 105.000000000000000000
         Size.Height = 23.000000000000000000
         Size.PlatformDefault = False
@@ -637,9 +640,9 @@ object TabbedForm: TTabbedForm
       object Edt_UTP_Value: TEdit
         Touch.InteractiveGestures = [LongTap, DoubleTap]
         TabOrder = 6
-        Position.X = 216.000000000000000000
+        Position.X = 208.000000000000000000
         Position.Y = 80.000000000000000000
-        Size.Width = 84.000000000000000000
+        Size.Width = 41.000000000000000000
         Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
         OnChange = Edt_UTP_ValueChange
@@ -655,9 +658,9 @@ object TabbedForm: TTabbedForm
       object Edt_OHP_Value: TEdit
         Touch.InteractiveGestures = [LongTap, DoubleTap]
         TabOrder = 8
-        Position.X = 216.000000000000000000
+        Position.X = 208.000000000000000000
         Position.Y = 152.000000000000000000
-        Size.Width = 84.000000000000000000
+        Size.Width = 41.000000000000000000
         Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
         OnChange = Edt_OHP_ValueChange
@@ -665,9 +668,9 @@ object TabbedForm: TTabbedForm
       object Edt_OHP_Time: TEdit
         Touch.InteractiveGestures = [LongTap, DoubleTap]
         TabOrder = 4
-        Position.X = 216.000000000000000000
+        Position.X = 208.000000000000000000
         Position.Y = 184.000000000000000000
-        Size.Width = 84.000000000000000000
+        Size.Width = 41.000000000000000000
         Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
         OnChange = Edt_OHP_TimeChange
@@ -691,9 +694,9 @@ object TabbedForm: TTabbedForm
       object Edt_UHP_Value: TEdit
         Touch.InteractiveGestures = [LongTap, DoubleTap]
         TabOrder = 7
-        Position.X = 216.000000000000000000
+        Position.X = 208.000000000000000000
         Position.Y = 224.000000000000000000
-        Size.Width = 84.000000000000000000
+        Size.Width = 41.000000000000000000
         Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
         OnChange = Edt_UHP_ValueChange
@@ -701,9 +704,9 @@ object TabbedForm: TTabbedForm
       object Edt_UHP_Time: TEdit
         Touch.InteractiveGestures = [LongTap, DoubleTap]
         TabOrder = 3
-        Position.X = 216.000000000000000000
+        Position.X = 208.000000000000000000
         Position.Y = 256.000000000000000000
-        Size.Width = 84.000000000000000000
+        Size.Width = 41.000000000000000000
         Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
         OnChange = Edt_UHP_TimeChange

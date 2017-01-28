@@ -32,7 +32,7 @@
 
 // desired closed loop response parameters
 #define zeta_cl 1.0
-#define w_0_cl_factor 1.5 // w_0 = w_0_cl_factor/tau
+#define w_0_cl_factor 5 // w_0 = w_0_cl_factor/tau
 //---------------------------------------------------------------------------
 class TTabbedForm : public TForm
 {

@@ -156,11 +156,11 @@ void __fastcall TTabbedForm::TimerTimer(TObject *Sender)
   // output state
   sprintf(sTmp, "%d", int((iData[3] & 0x7FF)/10.0 + 0.5));
   Label_Temp->Text = sTmp;
-  if (iData[3] & 0x2000)
+  if (iData[3] & 0x1000)
     Label_Hum->Text = "On";
   else
     Label_Hum->Text = "Off";
-  if (iData[3] & 0x1000)
+  if (iData[3] & 0x2000)
     Label_Timer->Text = "On";
   else
     Label_Timer->Text = "Off";
@@ -485,7 +485,7 @@ void __fastcall TTabbedForm::Edt_Timer_OffIntervalChange(TObject *Sender)
     AnsiString s = Edt_Timer_OffInterval->Text;
 
     int iPos = s.Pos(":");
-    if (iPos == 0)
+    if (iPos <= 0)
     {
       // seconds only in period
       iOff = s.ToInt();
@@ -526,11 +526,18 @@ void __fastcall TTabbedForm::Edt_Timer_OnIntervalChange(TObject *Sender)
 
   if (ModBus_WriteReg(MODBUS_ID, MODBUS_ADDR_TIMER_ON, iOn) != MODBUS_ERROR_OK)
   {
-  Caption = "BAD";
+    Caption = "BAD";
   }
 }
 //---------------------------------------------------------------------------
-
+AnsiString myIntToStr(int Value, int Digits)
+{
+  AnsiString sResult = IntToStr(Value);
+  while (sResult.Length() < Digits)
+    sResult = "0" + sResult;
+  return sResult;
+}
+//---------------------------------------------------------------------------
 void __fastcall TTabbedForm::TabItem_TimerClick(TObject *Sender)
 {
   short int iData[6];
@@ -547,9 +554,9 @@ void __fastcall TTabbedForm::TabItem_TimerClick(TObject *Sender)
   int iOff = iData[1];
 
   if (iOff >= 60)
-  sTmp = sTmp.sprintf("%02d:%02d", iOff/60, iOff % 60);
+    sTmp = myIntToStr(iOff/60, 2) + ":" + myIntToStr(iOff % 60, 2);
   else
-    sTmp = sTmp.sprintf("%02d", iOff);
+    sTmp = myIntToStr(iOff, 2);
 
   Edt_Timer_OffInterval->Text = sTmp;
   Edt_Timer_OnInterval->Text = AnsiString(iData[0]);
@@ -1010,6 +1017,11 @@ void __fastcall TTabbedForm::Btn_TuneClick(TObject *Sender)
       Caption = "BAD";
     }
     Edt_Ki->Text = FloatToStr(round(fK_i*1000)/1000.0);
+
+    // turn off manual mode
+    ChBx_ManualCtrlEn->IsChecked = 0;
+    TrackBar_HeaterPower->Value = 0;
+    UpdateManualControl();
 
     Timer->Enabled = 0;
   }
