@@ -477,13 +477,14 @@ float sample_humid(void) {
 }
 /* ---------------------------------------------------------------------------*/
 // error handler variables
+/*
 #define TEMP_ERROR_COUNT 5 // max concecutive ds18b20 errors before beep
 unsigned char iError_TempCount = 0; // counter for ds18b20 errors
 #define HEATER_ERROR_INTERVAL (30*60) // duration of output saturation before error signal [in sec]
 #define HEATER_ERROR_COUNT (HEATER_ERROR_INTERVAL/t_s)
 int iError_HeaterCount = 0; // counter for output saturation
 #define MAX_TEMP_ERROR 2.0 // maximum acceptable temperature error for heater fault check [oC]
-
+*/
 void Beep_On()
 {
   //TODO:
@@ -974,7 +975,7 @@ int main(void)
 									else
 										fInt = 0;
 									
-									bHybridCtrlState = HYBRID_STATE_PI;
+									bHybridCtrlState = HYBRID_STATE_PI; // TODO: switch to PI only when we cross down the reference point
 								}
 								
 								iHybridCtrlOnCounter = 0;
@@ -1017,7 +1018,7 @@ int main(void)
             HeaterOff();
 				}
       }
-      
+      /*
       // heater fault check
       if (fabs(fE) > MAX_TEMP_ERROR)
       {
@@ -1032,6 +1033,7 @@ int main(void)
         iError_HeaterCount = 0;
         Beep_Off();
       }
+			*/
       
       HAL_GPIO_TogglePin(GPIOA, LEDG_Pin);
     }
