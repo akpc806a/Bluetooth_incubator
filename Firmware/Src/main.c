@@ -121,6 +121,7 @@ typedef enum
     HYBRID_STATE_IDLE = 0,
     HYBRID_STATE_ONOFF,
     HYBRID_STATE_RATIO,
+    HYBRID_STATE_WAIT_TO_CROSS,
     HYBRID_STATE_PI
 } __attribute__ ((__packed__)) T_HybridCtrl_State;
 
@@ -975,7 +976,7 @@ int main(void)
 									else
 										fInt = 0;
 									
-									bHybridCtrlState = HYBRID_STATE_PI; // TODO: switch to PI only when we cross down the reference point
+									bHybridCtrlState = HYBRID_STATE_WAIT_TO_CROSS; 
 								}
 								
 								iHybridCtrlOnCounter = 0;
@@ -992,6 +993,13 @@ int main(void)
 							
 							bHybridCtrlHeaterOn = 1;
 						}
+					}
+					else
+					if (bHybridCtrlState == HYBRID_STATE_WAIT_TO_CROSS)
+					{
+						// switch to PI only when we just went below the reference point
+						if (fE > 0)
+							bHybridCtrlState = HYBRID_STATE_PI;
 					}
 					else
 					if (bHybridCtrlState == HYBRID_STATE_PI)
