@@ -13495,20 +13495,20 @@ Source: DS_FT232BL_BQ.pdf</description>
 <instance part="GND9" gate="1" x="121.92" y="-182.88"/>
 <instance part="GND11" gate="1" x="137.16" y="-175.26"/>
 <instance part="IC1" gate="G$1" x="86.36" y="-213.36"/>
-<instance part="SG1" gate="G$1" x="369.57" y="-242.57" smashed="yes" rot="R270">
-<attribute name="NAME" x="375.92" y="-240.03" size="1.778" layer="95" rot="R270"/>
-<attribute name="VALUE" x="369.57" y="-234.95" size="1.778" layer="96" rot="R270"/>
+<instance part="SG1" gate="G$1" x="176.53" y="-224.79" smashed="yes" rot="R270">
+<attribute name="NAME" x="182.88" y="-222.25" size="1.778" layer="95" rot="R270"/>
+<attribute name="VALUE" x="176.53" y="-217.17" size="1.778" layer="96" rot="R270"/>
 </instance>
-<instance part="Q2" gate="G$1" x="364.49" y="-259.08"/>
-<instance part="R2" gate="G$1" x="355.6" y="-259.08" rot="R180"/>
-<instance part="GND15" gate="1" x="367.03" y="-269.24"/>
-<instance part="R3" gate="G$1" x="360.68" y="-242.57" rot="R90"/>
-<instance part="+3V10" gate="G$1" x="367.03" y="-228.6"/>
-<instance part="C1" gate="G$1" x="382.27" y="-242.57" smashed="yes">
-<attribute name="NAME" x="383.794" y="-242.189" size="1.778" layer="95"/>
-<attribute name="VALUE" x="383.794" y="-247.269" size="1.778" layer="96"/>
+<instance part="Q2" gate="G$1" x="171.45" y="-241.3"/>
+<instance part="R2" gate="G$1" x="162.56" y="-241.3" rot="R180"/>
+<instance part="GND15" gate="1" x="173.99" y="-251.46"/>
+<instance part="R3" gate="G$1" x="167.64" y="-224.79" rot="R90"/>
+<instance part="+3V10" gate="G$1" x="173.99" y="-210.82"/>
+<instance part="C1" gate="G$1" x="189.23" y="-224.79" smashed="yes">
+<attribute name="NAME" x="190.754" y="-224.409" size="1.778" layer="95"/>
+<attribute name="VALUE" x="190.754" y="-229.489" size="1.778" layer="96"/>
 </instance>
-<instance part="GND18" gate="1" x="382.27" y="-252.73"/>
+<instance part="GND18" gate="1" x="189.23" y="-234.95"/>
 <instance part="C2" gate="G$1" x="115.57" y="-218.44" smashed="yes">
 <attribute name="NAME" x="117.094" y="-218.059" size="1.778" layer="95"/>
 <attribute name="VALUE" x="117.094" y="-223.139" size="1.778" layer="96"/>
@@ -13639,12 +13639,12 @@ Source: DS_FT232BL_BQ.pdf</description>
 <segment>
 <pinref part="GND15" gate="1" pin="GND"/>
 <pinref part="Q2" gate="G$1" pin="E"/>
-<wire x1="367.03" y1="-266.7" x2="367.03" y2="-264.16" width="0.1524" layer="91"/>
+<wire x1="173.99" y1="-248.92" x2="173.99" y2="-246.38" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="C1" gate="G$1" pin="2"/>
 <pinref part="GND18" gate="1" pin="GND"/>
-<wire x1="382.27" y1="-250.19" x2="382.27" y2="-247.65" width="0.1524" layer="91"/>
+<wire x1="189.23" y1="-232.41" x2="189.23" y2="-229.87" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="C10" gate="G$1" pin="2"/>
@@ -13734,16 +13734,16 @@ Source: DS_FT232BL_BQ.pdf</description>
 </segment>
 <segment>
 <pinref part="SG1" gate="G$1" pin="+"/>
-<wire x1="367.03" y1="-240.03" x2="367.03" y2="-236.22" width="0.1524" layer="91"/>
-<wire x1="367.03" y1="-236.22" x2="367.03" y2="-231.14" width="0.1524" layer="91"/>
-<wire x1="360.68" y1="-237.49" x2="360.68" y2="-236.22" width="0.1524" layer="91"/>
-<wire x1="360.68" y1="-236.22" x2="367.03" y2="-236.22" width="0.1524" layer="91"/>
-<junction x="367.03" y="-236.22"/>
+<wire x1="173.99" y1="-222.25" x2="173.99" y2="-218.44" width="0.1524" layer="91"/>
+<wire x1="173.99" y1="-218.44" x2="173.99" y2="-213.36" width="0.1524" layer="91"/>
+<wire x1="167.64" y1="-219.71" x2="167.64" y2="-218.44" width="0.1524" layer="91"/>
+<wire x1="167.64" y1="-218.44" x2="173.99" y2="-218.44" width="0.1524" layer="91"/>
+<junction x="173.99" y="-218.44"/>
 <pinref part="R3" gate="G$1" pin="2"/>
 <pinref part="+3V10" gate="G$1" pin="+3V3"/>
 <pinref part="C1" gate="G$1" pin="1"/>
-<wire x1="367.03" y1="-236.22" x2="382.27" y2="-236.22" width="0.1524" layer="91"/>
-<wire x1="382.27" y1="-236.22" x2="382.27" y2="-240.03" width="0.1524" layer="91"/>
+<wire x1="173.99" y1="-218.44" x2="189.23" y2="-218.44" width="0.1524" layer="91"/>
+<wire x1="189.23" y1="-218.44" x2="189.23" y2="-222.25" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="R22" gate="G$1" pin="2"/>
@@ -13928,18 +13928,18 @@ Source: DS_FT232BL_BQ.pdf</description>
 <segment>
 <pinref part="Q2" gate="G$1" pin="B"/>
 <pinref part="R2" gate="G$1" pin="1"/>
-<wire x1="361.95" y1="-259.08" x2="360.68" y2="-259.08" width="0.1524" layer="91"/>
+<wire x1="168.91" y1="-241.3" x2="167.64" y2="-241.3" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$4" class="0">
 <segment>
 <pinref part="Q2" gate="G$1" pin="C"/>
 <pinref part="SG1" gate="G$1" pin="-"/>
-<wire x1="367.03" y1="-254" x2="367.03" y2="-248.92" width="0.1524" layer="91"/>
-<wire x1="367.03" y1="-248.92" x2="367.03" y2="-247.65" width="0.1524" layer="91"/>
-<wire x1="360.68" y1="-247.65" x2="360.68" y2="-248.92" width="0.1524" layer="91"/>
-<wire x1="360.68" y1="-248.92" x2="367.03" y2="-248.92" width="0.1524" layer="91"/>
-<junction x="367.03" y="-248.92"/>
+<wire x1="173.99" y1="-236.22" x2="173.99" y2="-231.14" width="0.1524" layer="91"/>
+<wire x1="173.99" y1="-231.14" x2="173.99" y2="-229.87" width="0.1524" layer="91"/>
+<wire x1="167.64" y1="-229.87" x2="167.64" y2="-231.14" width="0.1524" layer="91"/>
+<wire x1="167.64" y1="-231.14" x2="173.99" y2="-231.14" width="0.1524" layer="91"/>
+<junction x="173.99" y="-231.14"/>
 <pinref part="R3" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -13969,8 +13969,8 @@ Source: DS_FT232BL_BQ.pdf</description>
 <net name="BEEP" class="0">
 <segment>
 <pinref part="R2" gate="G$1" pin="2"/>
-<wire x1="350.52" y1="-259.08" x2="341.63" y2="-259.08" width="0.1524" layer="91"/>
-<label x="341.63" y="-259.08" size="1.778" layer="95"/>
+<wire x1="157.48" y1="-241.3" x2="148.59" y2="-241.3" width="0.1524" layer="91"/>
+<label x="148.59" y="-241.3" size="1.778" layer="95"/>
 </segment>
 <segment>
 <wire x1="284.48" y1="-167.64" x2="259.08" y2="-167.64" width="0.1524" layer="91"/>
