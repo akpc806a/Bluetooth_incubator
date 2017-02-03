@@ -717,41 +717,41 @@ unsigned char bHumidityFault = 0;
 void CheckProtection()
 {
   if (iTemperature > iOTPValue)
-	{
-		iOTPCounter++;
-		if (iOTPCounter > iOTPTime)
-			bTemperatureFault = 1;
-	}
-	else
-		iOTPCounter = 0;
-	
+  {
+    iOTPCounter++;
+    if (iOTPCounter > iOTPTime)
+      bTemperatureFault = 1;
+  }
+  else
+    iOTPCounter = 0;
+  
   if (iTemperature < iUTPValue)
-	{
-		iUTPCounter++;
-		if (iUTPCounter > iUTPTime)
-			bTemperatureFault = 1;
-	}
-	else
-		iUTPCounter = 0;
-	
+  {
+    iUTPCounter++;
+    if (iUTPCounter > iUTPTime)
+      bTemperatureFault = 1;
+  }
+  else
+    iUTPCounter = 0;
+  
   if (iHumidity > iOHPValue)
-	{
-		iOHPCounter++;
-		if (iOHPCounter > iOHPTime)
-			bHumidityFault = 1;
-	}
-	else
-		iOHPCounter = 0;
-	
+  {
+    iOHPCounter++;
+    if (iOHPCounter > iOHPTime)
+      bHumidityFault = 1;
+  }
+  else
+    iOHPCounter = 0;
+  
   if (iHumidity < iUHPValue)
-	{
-		iUHPCounter++;
-		if (iUHPCounter > iUHPTime)
-			bHumidityFault = 1;
-	}
-	else
-		iUHPCounter = 0;
-	
+  {
+    iUHPCounter++;
+    if (iUHPCounter > iUHPTime)
+      bHumidityFault = 1;
+  }
+  else
+    iUHPCounter = 0;
+  
   if (bTemperatureFault || bHumidityFault) BEEP_ON();
 }
 /* ---------------------------------------------------------------------------*/
@@ -811,7 +811,7 @@ int main(void)
   
   Modbus_CreateEntry("Timer on interval", 17, &iTimerOnInterval, 0, 0);
   Modbus_CreateEntry("Timer off interval", 18, 0, TimerOff_RxCB, TimerOff_TxCB);
-	
+  
   Modbus_CreateEntry("Protection OTP value", 19, &iOTPValue, 0, 0); // MODBUS_ADDR_OTP_VALUE 19
   Modbus_CreateEntry("Protection OTP time", 20, &iOTPTime, 0, 0); // MODBUS_ADDR_OTP_TIME 20
   Modbus_CreateEntry("Protection UTP value", 21, &iUTPValue, 0, 0); // MODBUS_ADDR_UTP_VALUE 21
@@ -862,26 +862,29 @@ int main(void)
       iTimer++;
       uwTimerTimeStamp += 10; // this is one second
       
-      if (bTimerOn)
+      if (!IsManualControl()) // if timer enabled
       {
-        if (iTimer > iTimerOnInterval)
+        if (bTimerOn)
         {
-          bTimerOn = 0;
-          iTimer = 0;
-          TimerOff();
+          if (iTimer > iTimerOnInterval)
+          {
+            bTimerOn = 0;
+            iTimer = 0;
+            TimerOff();
+          }
+        }
+        else
+        {
+          if (iTimer > iTimerOffInterval)
+          {
+            bTimerOn = 1;
+            iTimer = 0;
+            TimerOn();
+          }
         }
       }
-      else
-      {
-        if (iTimer > iTimerOffInterval)
-        {
-          bTimerOn = 1;
-          iTimer = 0;
-          TimerOn();
-        }
-      }
-			
-			CheckProtection();
+      
+      CheckProtection();
     }
     
     // heater controller action
@@ -906,12 +909,12 @@ int main(void)
             TimerTriac_Load(iTriacDuty);
           else
             HeaterOff();
-					
-					
-					bHybridCtrlState = HYBRID_STATE_IDLE; // TODO: move it to Modbus write callback
+          
+          
+          bHybridCtrlState = HYBRID_STATE_IDLE; // TODO: move it to Modbus write callback
         }
         else
-				if (iHeaterCtrlType == CTRL_TYPE_ONOFF)
+        if (iHeaterCtrlType == CTRL_TYPE_ONOFF)
         {
           if (fE < -fTemprHysteresis)
           {
@@ -924,107 +927,107 @@ int main(void)
             SetHeaterState(MAX_TRIAC_DUTY);
             HeaterOn();
           }
-					
-					bHybridCtrlState = HYBRID_STATE_IDLE; // TODO: move it to Modbus write callback
+          
+          bHybridCtrlState = HYBRID_STATE_IDLE; // TODO: move it to Modbus write callback
         }
         else
-				{
-					if (bHybridCtrlState == HYBRID_STATE_IDLE)
-					{
-						// reset all stuff
+        {
+          if (bHybridCtrlState == HYBRID_STATE_IDLE)
+          {
+            // reset all stuff
             iHybridCtrlPulseCount = 0;
             iHybridCtrlOnCounter = 0;
             iHybridCtrlOffCounter = 0;
-						bHybridCtrlState = HYBRID_STATE_ONOFF;
-						SetHeaterState(0);
-					}
-					else
-					if (bHybridCtrlState == HYBRID_STATE_ONOFF)
-					{
-						// on-off stage
+            bHybridCtrlState = HYBRID_STATE_ONOFF;
+            SetHeaterState(0);
+          }
+          else
+          if (bHybridCtrlState == HYBRID_STATE_ONOFF)
+          {
+            // on-off stage
 
-						// calculating of on and off durations
-						if (bHybridCtrlHeaterOn)
-							iHybridCtrlOnCounter++;
-						else
-							iHybridCtrlOffCounter++;
-						
-						if (fE < -fTemprHysteresis)
-						{
-							SetHeaterState(0);
-							HeaterOff();
-							
-							if (bHybridCtrlHeaterOn)
-							{
-								// incrementing on-off cycle count
-								iHybridCtrlPulseCount++;
-								if (iHybridCtrlPulseCount == HYBRID_CTRL_PULSE_COUNT) // this is the last cycle
-								{
-									if (iHybridCtrlOnCounter + iHybridCtrlOffCounter == 0)
-										fRes = 0.5; // this is only to prevent division by 0
-									else
-									  fRes = (float)(iHybridCtrlOnCounter) / (float)(iHybridCtrlOnCounter + iHybridCtrlOffCounter); // duty cycle
-									// (u_max*fRes) == PI controller output (+ some nonlinear correction) == K_i*fInt 
-									
-									// nonlinear compensation based on 
-									// "An Accurate Formula For The Firing Angle Of The Phase Angle Control In Terms Of The Duty Cycle Of The Integral Cycle Control"
-									// http://jase.esrgroups.org/papers/6_1_4_12.pdf
-									fRes = 1 - ((-4.499*fRes*fRes*fRes + 6.79*fRes*fRes - 4.68*fRes + 2.77))/3.1415926;
-									
-									if (fabs(K_i) > 0.001)
-										fInt = (u_max*fRes) / K_i;
-									else
-										fInt = 0;
-									
-									bHybridCtrlState = HYBRID_STATE_WAIT_TO_CROSS; 
-								}
-								
-								iHybridCtrlOnCounter = 0;
-								iHybridCtrlOffCounter = 0;
-							}
-							
-							bHybridCtrlHeaterOn = 0;
-						}
-						else
-						if (fE > fTemprHysteresis)
-						{
-							SetHeaterState(MAX_TRIAC_DUTY);
-							HeaterOn();
-							
-							bHybridCtrlHeaterOn = 1;
-						}
-					}
-					else
-					if (bHybridCtrlState == HYBRID_STATE_WAIT_TO_CROSS)
-					{
-						// switch to PI only when we just went below the reference point
-						if (fE > 0)
-							bHybridCtrlState = HYBRID_STATE_PI;
-					}
-					else
-					if (bHybridCtrlState == HYBRID_STATE_PI)
-					{
-						// PI controller action
-						fRes = PI_Controller(fE); 
-						
-						SetHeaterState(fRes*10); // setting iTriacDuty variable
-						if (iTriacDuty > 1)
-							TimerTriac_Load(iTriacDuty);
-						else
-							HeaterOff();
-						
-						// we out of the boundaries -- go to initial state
-						if (fE < -fTemprHysteresis) bHybridCtrlState = HYBRID_STATE_IDLE;
-						if (fE > fTemprHysteresis) bHybridCtrlState = HYBRID_STATE_IDLE;
-					}
-					
-					
-					
-					if (iTriacDuty > 1)
+            // calculating of on and off durations
+            if (bHybridCtrlHeaterOn)
+              iHybridCtrlOnCounter++;
+            else
+              iHybridCtrlOffCounter++;
+            
+            if (fE < -fTemprHysteresis)
+            {
+              SetHeaterState(0);
+              HeaterOff();
+              
+              if (bHybridCtrlHeaterOn)
+              {
+                // incrementing on-off cycle count
+                iHybridCtrlPulseCount++;
+                if (iHybridCtrlPulseCount == HYBRID_CTRL_PULSE_COUNT) // this is the last cycle
+                {
+                  if (iHybridCtrlOnCounter + iHybridCtrlOffCounter == 0)
+                    fRes = 0.5; // this is only to prevent division by 0
+                  else
+                    fRes = (float)(iHybridCtrlOnCounter) / (float)(iHybridCtrlOnCounter + iHybridCtrlOffCounter); // duty cycle
+                  // (u_max*fRes) == PI controller output (+ some nonlinear correction) == K_i*fInt 
+                  
+                  // nonlinear compensation based on 
+                  // "An Accurate Formula For The Firing Angle Of The Phase Angle Control In Terms Of The Duty Cycle Of The Integral Cycle Control"
+                  // http://jase.esrgroups.org/papers/6_1_4_12.pdf
+                  fRes = 1 - ((-4.499*fRes*fRes*fRes + 6.79*fRes*fRes - 4.68*fRes + 2.77))/3.1415926;
+                  
+                  if (fabs(K_i) > 0.001)
+                    fInt = (u_max*fRes) / K_i;
+                  else
+                    fInt = 0;
+                  
+                  bHybridCtrlState = HYBRID_STATE_WAIT_TO_CROSS; 
+                }
+                
+                iHybridCtrlOnCounter = 0;
+                iHybridCtrlOffCounter = 0;
+              }
+              
+              bHybridCtrlHeaterOn = 0;
+            }
+            else
+            if (fE > fTemprHysteresis)
+            {
+              SetHeaterState(MAX_TRIAC_DUTY);
+              HeaterOn();
+              
+              bHybridCtrlHeaterOn = 1;
+            }
+          }
+          else
+          if (bHybridCtrlState == HYBRID_STATE_WAIT_TO_CROSS)
+          {
+            // switch to PI only when we just went below the reference point
+            if (fE > 0)
+              bHybridCtrlState = HYBRID_STATE_PI;
+          }
+          else
+          if (bHybridCtrlState == HYBRID_STATE_PI)
+          {
+            // PI controller action
+            fRes = PI_Controller(fE); 
+            
+            SetHeaterState(fRes*10); // setting iTriacDuty variable
+            if (iTriacDuty > 1)
+              TimerTriac_Load(iTriacDuty);
+            else
+              HeaterOff();
+            
+            // we out of the boundaries -- go to initial state
+            if (fE < -fTemprHysteresis) bHybridCtrlState = HYBRID_STATE_IDLE;
+            if (fE > fTemprHysteresis) bHybridCtrlState = HYBRID_STATE_IDLE;
+          }
+          
+          
+          
+          if (iTriacDuty > 1)
             TimerTriac_Load(iTriacDuty);
           else
             HeaterOff();
-				}
+        }
       }
       /*
       // heater fault check
@@ -1041,7 +1044,7 @@ int main(void)
         iError_HeaterCount = 0;
         Beep_Off();
       }
-			*/
+      */
       
       HAL_GPIO_TogglePin(GPIOA, LEDG_Pin);
     }
@@ -1054,22 +1057,25 @@ int main(void)
       fRes = sample_humid();
       iHumidity = fRes*100;
       
-      if (fRes < fHumidityLowerRef)
+      if (!IsManualControl()) // if regulator enabled
       {
-        if (iHumidityOutputInv == 0)
-          HumidityOn();
+        if (fRes < fHumidityLowerRef)
+        {
+          if (iHumidityOutputInv == 0)
+            HumidityOn();
+          else
+            HumidityOff();
+        }
         else
-          HumidityOff();
+        if (fRes > fHumidityUpperRef)
+        {
+          if (iHumidityOutputInv == 0)
+            HumidityOff();
+          else
+            HumidityOn();
+        }
       }
-      else
-      if (fRes > fHumidityUpperRef)
-      {
-        if (iHumidityOutputInv == 0)
-          HumidityOff();
-        else
-          HumidityOn();
-      }
-    }
+		}
     
     
     if (IsManualControl())
@@ -1353,10 +1359,10 @@ void MX_GPIO_Init(void)
   
   GPIO_InitStruct.Pin = CH2_Pin;
   HAL_GPIO_Init(CH2_GPIO_Port, &GPIO_InitStruct);
-	
+  
   GPIO_InitStruct.Pin = BEEP_Pin;
   HAL_GPIO_Init(BEEP_GPIO_Port, &GPIO_InitStruct);
-	HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_RESET);
 
   /* EXTI interrupt init*/
   HAL_NVIC_SetPriority(EXTI4_15_IRQn, 0, 0);
@@ -1377,7 +1383,7 @@ static void Error_Handler(void)
   {
     /* Toggle LED2 */
     //HAL_GPIO_TogglePin(GPIOA, LEDR_Pin);
-		HAL_GPIO_WritePin(GPIOA, LEDR_Pin, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(GPIOA, LEDR_Pin, GPIO_PIN_SET);
     HAL_Delay(50);
   }
 }
@@ -1488,7 +1494,7 @@ void ProgramFlash()
   if (HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, iMemRWAddr, iOHPTime) != HAL_OK) { HAL_GPIO_WritePin(LEDR_GPIO_Port, LEDR_Pin, GPIO_PIN_SET);  return; } iMemRWAddr+=4;
   if (HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, iMemRWAddr, iUHPValue) != HAL_OK) { HAL_GPIO_WritePin(LEDR_GPIO_Port, LEDR_Pin, GPIO_PIN_SET);  return; } iMemRWAddr+=4;
   if (HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, iMemRWAddr, iUHPTime) != HAL_OK) { HAL_GPIO_WritePin(LEDR_GPIO_Port, LEDR_Pin, GPIO_PIN_SET);  return; } iMemRWAddr+=4;
-	
+  
     // lock flash control
   HAL_FLASH_Lock();
 }
@@ -1516,7 +1522,7 @@ void ReadFlash()
   
   iTimerOnInterval = *((uint32_t*)(iMemRWAddr)); iMemRWAddr+=4;
   iTimerOffInterval = *((uint32_t*)(iMemRWAddr)); iMemRWAddr+=4;
-	
+  
   iOTPValue = *((uint32_t*)(iMemRWAddr)); iMemRWAddr+=4;
   iOTPTime = *((uint32_t*)(iMemRWAddr)); iMemRWAddr+=4;
   iUTPValue = *((uint32_t*)(iMemRWAddr)); iMemRWAddr+=4;
